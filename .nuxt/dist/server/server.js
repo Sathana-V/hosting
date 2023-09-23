@@ -10804,7 +10804,7 @@ var dashboardvue_type_template_id_3390c536_scoped_true_staticRenderFns = [];
     this.adminname = cook;
     if (cook == null) {
       console.log("empty");
-      window.location.href = "https://sadhanagarments-admin/loginform";
+      window.location.href = "https://sadhanagarments-admin.netlify.app/loginform";
     }
   },
   data() {
@@ -10819,7 +10819,7 @@ var dashboardvue_type_template_id_3390c536_scoped_true_staticRenderFns = [];
       title: 'SADHANA GARMENTS',
       menu: [{
         icon: 'fullscreen_exit',
-        href: 'https://sadhanagarments-admin/loginform',
+        href: 'https://sadhanagarments-admin.netlify.app/loginform',
         title: 'logout'
       }],
       links: [{
@@ -10851,7 +10851,7 @@ var dashboardvue_type_template_id_3390c536_scoped_true_staticRenderFns = [];
     logout(name) {
       console.log('logout');
       document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-      window.location.href = "https://sadhanagarments-admin/loginform";
+      window.location.href = "https://sadhanagarments-admin.netlify.app/loginform";
     }
   }
 });

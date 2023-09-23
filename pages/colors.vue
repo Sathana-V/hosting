@@ -127,7 +127,7 @@ export default {
         if(cook==null)
                    {
                      console.log("empty")
-                        window.location.href = "https://sadhanagarments-admin/loginform"
+                        window.location.href = "https://sadhanagarments-admin.netlify.app/loginform"
                      
                      
                    }
