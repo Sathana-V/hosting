@@ -2575,7 +2575,7 @@ var staticRenderFns = [];
         }
         var username = '';
         var useremail = '';
-        const response = await this.$axios.post("http://sadhanagarments.free.nf/public/admin/validate", data, {
+        const response = await this.$axios.post("https://sadhanagarments.free.nf/public/admin/validate", data, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
