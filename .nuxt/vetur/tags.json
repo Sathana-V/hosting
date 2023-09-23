@@ -1,0 +1,23 @@
+{
+  "AddModel": {
+    "description": "Auto imported from components/AddModel.vue"
+  },
+  "AddProduct": {
+    "description": "Auto imported from components/AddProduct.vue"
+  },
+  "EditColor": {
+    "description": "Auto imported from components/EditColor.vue"
+  },
+  "EditProduct": {
+    "description": "Auto imported from components/EditProduct.vue"
+  },
+  "ImageViewer": {
+    "description": "Auto imported from components/ImageViewer.vue"
+  },
+  "LoginPage": {
+    "description": "Auto imported from components/LoginPage.vue"
+  },
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  }
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "colors",
+    "path": "/colors",
+    "component": "D:\\\\Projects\\\\hosting\\\\pages\\\\colors.vue",
+    "chunkName": "pages/colors",
+    "_name": "_107aee50"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "D:\\\\Projects\\\\hosting\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_9093ca9e"
+  },
+  {
+    "name": "loginform",
+    "path": "/loginform",
+    "component": "D:\\\\Projects\\\\hosting\\\\pages\\\\loginform.vue",
+    "chunkName": "pages/loginform",
+    "_name": "_b1931e16"
+  },
+  {
+    "name": "products",
+    "path": "/products",
+    "component": "D:\\\\Projects\\\\hosting\\\\pages\\\\products.vue",
+    "chunkName": "pages/products",
+    "_name": "_124b8ecc"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "D:\\\\Projects\\\\hosting\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_23e310cc"
+  }
+]
