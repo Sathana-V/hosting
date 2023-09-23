@@ -11639,7 +11639,7 @@ var VToolbar = __webpack_require__(11);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VToolbar/index.js
 var components_VToolbar = __webpack_require__(36);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--7!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/products.vue?vue&type=template&id=10e06a25&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--7!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/products.vue?vue&type=template&id=33c203d0&
 
 
 
@@ -11658,7 +11658,7 @@ var components_VToolbar = __webpack_require__(36);
 
 
 
-var productsvue_type_template_id_10e06a25_render = function render() {
+var productsvue_type_template_id_33c203d0_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c(VContent["a" /* default */], {
@@ -11937,7 +11937,7 @@ var productsvue_type_template_id_10e06a25_render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./pages/products.vue?vue&type=template&id=10e06a25&
+// CONCATENATED MODULE: ./pages/products.vue?vue&type=template&id=33c203d0&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/products.vue?vue&type=script&lang=js&
 /* harmony default export */ var productsvue_type_script_lang_js_ = ({
@@ -11946,7 +11946,7 @@ var staticRenderFns = [];
     var cook = this.getCookie("username");
     if (cook == null) {
       console.log("empty");
-      window.location.href = "https://radiant-mermaid-160653.netlify.app/loginform";
+      window.location.href = "https://samplesite0210.netlify.app/loginform";
     }
   },
   mounted() {
@@ -12136,7 +12136,7 @@ function injectStyles (context) {
 
 var component = Object(componentNormalizer["a" /* default */])(
   pages_productsvue_type_script_lang_js_,
-  productsvue_type_template_id_10e06a25_render,
+  productsvue_type_template_id_33c203d0_render,
   staticRenderFns,
   false,
   injectStyles,
