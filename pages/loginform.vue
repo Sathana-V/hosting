@@ -56,7 +56,7 @@ export default {
         if(cook!=null)
                    {
                      console.log("nonempty")
-                       window.location.href = "https://radiant-mermaid-160653.netlify.app/"
+                       window.location.href = "https://samplesite0210.netlify.app/"
                      
                      
                    }
@@ -139,7 +139,7 @@ export default {
                    console.log("cookie",this.getCookie("username"));
                    if(this.getCookie("username")!=' ')
                    {
-                     window.location.href = "https://radiant-mermaid-160653.netlify.app/"
+                     window.location.href = "https://samplesite0210.netlify.app/"
                    }
                   // let datai = new FormData()
                   // datai.append('email', this.email)
