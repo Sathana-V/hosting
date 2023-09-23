@@ -11946,7 +11946,7 @@ var staticRenderFns = [];
     var cook = this.getCookie("username");
     if (cook == null) {
       console.log("empty");
-      window.location.href = "https://samplesite0210.netlify.app/loginform";
+      window.location.href = "https://sadhanagarments-admin/loginform";
     }
   },
   mounted() {

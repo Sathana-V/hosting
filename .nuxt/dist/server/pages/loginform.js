@@ -2529,7 +2529,7 @@ var staticRenderFns = [];
     var cook = this.getCookie("username");
     if (cook != null) {
       console.log("nonempty");
-      window.location.href = "https://samplesite0210.netlify.app/";
+      window.location.href = "https://sadhanagarments-admin/";
     }
   },
   data: () => ({
@@ -2597,7 +2597,7 @@ var staticRenderFns = [];
             this.setCookie("username", get_username, 1);
             console.log("cookie", this.getCookie("username"));
             if (this.getCookie("username") != ' ') {
-              window.location.href = "https://samplesite0210.netlify.app/";
+              window.location.href = "https://sadhanagarments-admin/";
             }
             // let datai = new FormData()
             // datai.append('email', this.email)
