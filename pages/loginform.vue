@@ -108,7 +108,7 @@ export default {
         var username='';
         var useremail='';
         const response = await this.$axios.post(
-            "https://sadhanagarments.free.nf/public/admin/validate",
+            "https://sadhanagarments2013.000webhostapp.com/public/admin/validate",
             data,
             {
               headers: {
