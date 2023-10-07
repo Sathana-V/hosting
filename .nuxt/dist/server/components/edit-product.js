@@ -4708,7 +4708,7 @@ if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(6).default
 module.exports.__inject__ = function (context) {
-  add("56e6404a", content, true, context)
+  add("0df9cf63", content, true, context)
 };
 
 /***/ }),
@@ -7168,9 +7168,9 @@ function searchTableItems(items, search, headersWithCustomFilters, headersWithou
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditProduct_vue_vue_type_style_index_0_id_081c8102_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(246);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditProduct_vue_vue_type_style_index_0_id_081c8102_prod_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditProduct_vue_vue_type_style_index_0_id_081c8102_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditProduct_vue_vue_type_style_index_0_id_081c8102_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditProduct_vue_vue_type_style_index_0_id_081c8102_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditProduct_vue_vue_type_style_index_0_id_347344c4_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(246);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditProduct_vue_vue_type_style_index_0_id_347344c4_prod_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditProduct_vue_vue_type_style_index_0_id_347344c4_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditProduct_vue_vue_type_style_index_0_id_347344c4_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditProduct_vue_vue_type_style_index_0_id_347344c4_prod_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
@@ -8508,7 +8508,7 @@ var VTextField = __webpack_require__(174);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VTextarea/VTextarea.js
 var VTextarea = __webpack_require__(271);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--7!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/EditProduct.vue?vue&type=template&id=081c8102&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/babel-loader/lib??ref--2-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--7!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/EditProduct.vue?vue&type=template&id=347344c4&
 
 
 
@@ -8536,14 +8536,14 @@ var VTextarea = __webpack_require__(271);
 
 
 
-var EditProductvue_type_template_id_081c8102_render = function render() {
+var EditProductvue_type_template_id_347344c4_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c(VCard["a" /* default */], [_c(components_VCard["c" /* VCardTitle */], {
     staticClass: "background white--text text-h5 pa-2"
   }, [_c('div', {
     staticClass: "ml-3 pl-6"
-  }, [_vm._v("\n      Add Product\n    ")])]), _vm._v(" "), _c(VContainer["a" /* default */], {
+  }, [_vm._v("Add Product")])]), _vm._v(" "), _c(VContainer["a" /* default */], {
     staticClass: "pa-6"
   }, [_c(VForm["a" /* default */], {
     ref: "form",
@@ -9053,7 +9053,7 @@ var EditProductvue_type_template_id_081c8102_render = function render() {
         _vm.success = false;
       }
     }
-  }, [_vm._v("\n              OK\n            ")])], 1)], 1)], 1)], 1)], 1), _vm._v(" "), _c(components_VCard["a" /* VCardActions */], {
+  }, [_vm._v(" OK ")])], 1)], 1)], 1)], 1)], 1), _vm._v(" "), _c(components_VCard["a" /* VCardActions */], {
     staticClass: "d-flex align-lg-content-end flex-column"
   }, [_c('div', [_c(VBtn["a" /* default */], {
     staticClass: "white pa-4 black--text",
@@ -9083,7 +9083,7 @@ var EditProductvue_type_template_id_081c8102_render = function render() {
 };
 var staticRenderFns = [];
 
-// CONCATENATED MODULE: ./components/EditProduct.vue?vue&type=template&id=081c8102&
+// CONCATENATED MODULE: ./components/EditProduct.vue?vue&type=template&id=347344c4&
 
 // EXTERNAL MODULE: ./components/ImageViewer.vue + 4 modules
 var ImageViewer = __webpack_require__(195);
@@ -9234,44 +9234,44 @@ const sorter2 = sortBy => (a, b) => a[sortBy].toLowerCase() > b[sortBy].toLowerC
     // function to set detailes of selected item
     chartChanged() {
       this.tableShow = false;
-      if (this.sizeType === 'size') {
+      if (this.sizeType === "size") {
         this.cmChart = [];
-      } else if (this.sizeType === 'cm') {
+      } else if (this.sizeType === "cm") {
         this.sizeChart = [];
       }
     },
     editInput(item) {
       let resulti = this.priceTag;
-      let obj = resulti.find(o => o['label'] === item.label);
+      let obj = resulti.find(o => o["label"] === item.label);
     },
     initialGeneratePrice() {
       this.priceTag = [];
-      if (this.sizeType === 'size') {
+      if (this.sizeType === "size") {
         this.headers = this.sizeheaders;
         for (var i = 0; i < this.sizeChart.length; i++) {
           var agegroup = this.editItem.price[i]["'agegroup'"];
           var price = this.editItem.price[i]["'price'"];
           var obj = {
-            'label': this.sizeChart[i].size_label,
-            'rank': this.sizeChart[i].size_rank,
-            'agegroup': agegroup,
-            'price': price
+            label: this.sizeChart[i].size_label,
+            rank: this.sizeChart[i].size_rank,
+            agegroup: agegroup,
+            price: price
           };
           this.priceTag.push(obj);
         }
         let objs = this.priceTag;
-        objs.sort(sorter2('rank'));
+        objs.sort(sorter2("rank"));
         this.priceTag = objs;
-      } else if (this.sizeType === 'cm') {
+      } else if (this.sizeType === "cm") {
         this.headers = this.cmheaders;
         for (var i = 0; i < this.cmChart.length; i++) {
           this.priceTag.push({
-            'label': this.cmChart[i],
-            'price': this.editItem.price[i]["'price'"]
+            label: this.cmChart[i],
+            price: this.editItem.price[i]["'price'"]
           });
         }
         let objs = this.priceTag;
-        objs.sort(sorter2('label'));
+        objs.sort(sorter2("label"));
         this.priceTag = objs;
       }
       this.tableShow = true;
@@ -9281,38 +9281,69 @@ const sorter2 = sortBy => (a, b) => a[sortBy].toLowerCase() > b[sortBy].toLowerC
     generatePrice() {
       // console.log(this.sizeType)
       this.priceTag = [];
-      if (this.sizeType === 'size') {
+      if (this.sizeType === "size") {
         this.headers = this.sizeheaders;
         // console.log(this.sizeChart)
         for (const element of this.sizeChart) {
           this.sizefinallist.push(element.size_label);
           this.priceTag.push({
-            'label': element.size_label,
-            'rank': element.size_rank,
-            'agegroup': '',
-            'price': 0
+            label: element.size_label,
+            rank: element.size_rank,
+            agegroup: "",
+            price: 0
           });
         }
         let objs = this.priceTag;
-        objs.sort(sorter2('rank'));
+        objs.sort(sorter2("rank"));
         this.priceTag = objs;
-      } else if (this.sizeType === 'cm') {
+      } else if (this.sizeType === "cm") {
         this.headers = this.cmheaders;
         for (const element of this.cmChart) {
           this.sizefinallist.push(element);
           this.priceTag.push({
-            'label': element,
-            'price': 0
+            label: element,
+            price: 0
           });
         }
         let objs = this.priceTag;
-        objs.sort(sorter2('label'));
+        objs.sort(sorter2("label"));
         this.priceTag = objs;
       }
       this.tableShow = true;
       // console.log(this.priceTag)
     },
 
+    async fetchImageAndConvertToBase64(imageUrl) {
+      console.log('imageUrl', imageUrl);
+      try {
+        // Fetch the image from the public folder on 000webhost
+        const response = await fetch("https://sadhanagarments2013.000webhostapp.com/public/uploads/abc.jpg");
+        console.log('repsonse', response);
+        if (!response.ok) {
+          throw new Error('Failed to fetch the image.');
+        }
+
+        // Convert the image to Blob
+        const imageBlob = await response.blob();
+
+        // Create a FileReader to read the Blob as Base64
+        const reader = new FileReader();
+        reader.readAsDataURL(imageBlob);
+        return new Promise((resolve, reject) => {
+          reader.onloadend = () => {
+            if (reader.result) {
+              // Resolve with the Base64 data
+              resolve(reader.result);
+            } else {
+              reject(new Error('Failed to convert the image to Base64.'));
+            }
+          };
+        });
+      } catch (error) {
+        console.error('Error fetching and converting image:', error);
+        throw error;
+      }
+    },
     async setDetails() {
       // console.log("heweoauiu")
       // console.log("count",this.editItem.colors_available.length)
@@ -9330,19 +9361,19 @@ const sorter2 = sortBy => (a, b) => a[sortBy].toLowerCase() > b[sortBy].toLowerC
         var name = this.editItem.colors_available[i]["name"];
         var hexvalue = this.editItem.colors_available[i]["hexvalue"];
         var newobj = {
-          'color_id': id,
-          'color_name': name,
-          'color_hexvalue': hexvalue
+          color_id: id,
+          color_name: name,
+          color_hexvalue: hexvalue
         };
         // console.log(newobj)
         this.color.push(newobj);
       }
-      if (this.editItem.sizetype == 'cm') {
+      if (this.editItem.sizetype == "cm") {
         for (var i = 0; i < this.editItem.price.length; i++) {
           this.cmChart.push(this.editItem.price[i]["'label'"]);
         }
       }
-      if (this.editItem.sizetype == 'size') {
+      if (this.editItem.sizetype == "size") {
         for (var i = 0; i < this.editItem.price.length; i++) {
           var label = this.editItem.price[i]["'label'"];
           for (const element of this.sizeList) {
@@ -9356,9 +9387,9 @@ const sorter2 = sortBy => (a, b) => a[sortBy].toLowerCase() > b[sortBy].toLowerC
       this.price = this.editItem.price;
       this.sizetype = this.editItem.sizetype;
       this.model = {
-        'model_id': this.editItem.model_id,
-        'model_name': this.editItem.model_name,
-        'status': 'active'
+        model_id: this.editItem.model_id,
+        model_name: this.editItem.model_name,
+        status: "active"
       };
       console.log("model=>", this.model);
       this.sizeType = this.editItem.sizetype;
@@ -9374,32 +9405,69 @@ const sorter2 = sortBy => (a, b) => a[sortBy].toLowerCase() > b[sortBy].toLowerC
       this.passFile = [];
       this.preview_list = [];
       this.passFile = [];
+      console.log("note efre");
       //loop to fetch images from local storage
       for (var i = 0; i < this.attachedImages.length; i++) {
+        console.log("note efre", i);
         try {
-          let url = !(function webpackMissingModule() { var e = new Error("Cannot find module 'undefined'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+          let url = "https://sadhanagarments2013.000webhostapp.com/public/product/image/new/" + this.attachedImages[i];
 
           //converting image to data url
-          const toDataURL = url => fetch(url).then(response => response.blob()).then(blob => new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result);
-            reader.onerror = reject;
-            reader.readAsDataURL(blob);
-          }));
+          // const toDataURL = url =>
+          //   fetch(url)
+          //     .then(response => response.blob())
+          //     .then(
+          //       blob =>
+          //         new Promise((resolve, reject) => {
+          //           const reader = new FileReader();
+          //           reader.onloadend = () => resolve(reader.result);
+          //           reader.onerror = reject;
+          //           reader.readAsDataURL(blob);
+          //         })
+          //     );
           let imgname = this.attachedImages[i];
-          toDataURL(url).then(dataUrl => {
-            this.preview_list.push(dataUrl);
-            // console.log('name',imgname)
-            var fileData = this.dataURLtoFile(dataUrl, imgname);
-            this.passFile.push(fileData);
-            this.image_list.push(fileData.name);
+          // toDataURL(url).then(dataUrl => {
+          let dataUrl = url;
+          console.log("haiiii sad");
+          this.preview_list.push(dataUrl);
+          console.log("preivew", this.preview_list);
+          // console.log('name',imgname)
+          this.fetchImageAndConvertToBase64(imgname).then(base64Data => {
+            console.log(base64Data); // You can use the Base64 data here
+          }).catch(error => {
+            console.error('Error:', error);
           });
+          // var fileData = this.dataURLtoFile(dataUrl, imgname);
+          // console.log("hwre");
+          // this.passFile.push(fileData);
+          // console.log("passFile", this.passFile);
+          // this.image_list.push(fileData.name);
+          // });
         } catch (e) {}
       }
       // console.log(this.preview_list)
       this.designation = this.editItem.designation_id;
       this.selectedDesignation = this.editItem.designation_id;
       this.initialGeneratePrice();
+    },
+    async imageUrlToDataUrl(imageUrl) {
+      // Use Axios to make a GET request
+      fetch(imageUrl, {
+        method: "POST",
+        mode: "no-cors"
+      }).then(response => {
+        console.log(response);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response;
+      }).then(data => {
+        // Handle the response data
+        console.log("Data:", data);
+      }).catch(error => {
+        // Handle errors
+        console.error("Fetch Error:", error.message);
+      });
     },
     //will be invoked when image orientation changes
     edited(file, index) {
@@ -9523,17 +9591,14 @@ const sorter2 = sortBy => (a, b) => a[sortBy].toLowerCase() > b[sortBy].toLowerC
         }
         for (var index = 0; index < this.color.length; index++) {
           data.append(`available_colors[${index}]`, this.color[index].color_id);
-          // data.append(`available_colors[${index}]['name']`, this.color[index].color_name);
-          // data.append(`available_colors[${index}]['hexvalue']`, this.color[index].color_hexvalue);
         }
-
-        if (this.sizeType == 'size') {
+        if (this.sizeType == "size") {
           for (var index = 0; index < this.priceTag.length; index++) {
             data.append(`pricelist[${index}]['label']`, this.priceTag[index].label);
             data.append(`pricelist[${index}]['price']`, this.priceTag[index].price);
             data.append(`pricelist[${index}]['agegroup']`, this.priceTag[index].agegroup);
           }
-        } else if (this.sizeType == 'cm') {
+        } else if (this.sizeType == "cm") {
           for (var index = 0; index < this.priceTag.length; index++) {
             data.append(`pricelist[${index}]['label']`, this.priceTag[index].label);
             data.append(`pricelist[${index}]['price']`, this.priceTag[index].price);
@@ -9560,18 +9625,26 @@ const sorter2 = sortBy => (a, b) => a[sortBy].toLowerCase() > b[sortBy].toLowerC
           data.append("oldfiles[]", oldFiles[index]);
         }
         for (var pair of data.entries()) {
-          console.log(pair[0] + ', ' + pair[1]);
+          console.log(pair[0] + ", " + pair[1]);
         }
-        const response = await this.$axios.post("product/update/" + this.editItem.product_id, data, {
-          headers: {
-            "Content-Type": "multipart/form-data"
+        try {
+          const response = await fetch("https://sadhanagarments2013.000webhostapp.com/public/product/update/" + this.editItem.product_id, {
+            method: "POST",
+            body: data
+          });
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log(responseData);
+            if (response.status === 201 && responseData.status === 201) {
+              this.closeDialog("success");
+            } else {
+              this.closeDialog("failed");
+            }
+          } else {
+            console.log("Fetch request failed with status:", response.status);
           }
-        });
-        console.log(response);
-        if (response.status && response.data.status === 201) {
-          this.closeDialog("success");
-        } else {
-          this.closeDialog("failed");
+        } catch (error) {
+          console.error("Error:", error);
         }
       }
     }
@@ -9597,7 +9670,7 @@ if (style0.__inject__) style0.__inject__(context)
 
 var component = Object(componentNormalizer["a" /* default */])(
   components_EditProductvue_type_script_lang_js_,
-  EditProductvue_type_template_id_081c8102_render,
+  EditProductvue_type_template_id_347344c4_render,
   staticRenderFns,
   false,
   injectStyles,

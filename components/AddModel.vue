@@ -132,36 +132,39 @@ export default {
     },
     
    
-    async submit() {
-      
-        let data = new FormData();
-        data.append("name", this.modelName);
-         
+async submit() {
+  let data = new FormData();
+  data.append("name", this.modelName);
 
-      
-                     for (var pair of data.entries()) {
-        console.log(pair[0]+ ', ' + pair[1]);
-                    }
+  for (var pair of data.entries()) {
+    console.log(pair[0] + ', ' + pair[1]);
+  }
 
-         
-        const response = await this.$axios.post(
-            "models/add",
-            data,
-            {
-              headers: {
-                "Content-Type": "multipart/form-data"
-              }
-            }
-          )
-        console.log(response)
-        if (response.status && response.data.status === 201) {
-          console.log("succees")
-          this.closeDialog("success");
-        } else {
-           console.log("failed")
-          this.closeDialog("failed");
-        }
+  try {
+    const response = await fetch("https://sadhanagarments2013.000webhostapp.com/public/models/add", {
+      method: "POST",
+      body: data
+    });
+
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log(responseData);
+
+      if (response.status === 201 && responseData.status === 201) {
+        console.log("success");
+        this.closeDialog("success");
+      } else {
+        console.log("failed");
+        this.closeDialog("failed");
       }
+    } else {
+      console.log("Fetch request failed with status:", response.status);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
     }
   
 };
