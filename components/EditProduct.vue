@@ -1,13 +1,15 @@
 <template>
   <v-card>
     <v-card-title class="background white--text text-h5 pa-2">
-      <div class="ml-3 pl-6">Add Product</div>
+      <div class=" ml-3 pl-6">
+        Add Product
+      </div>
     </v-card-title>
 
     <v-container class="pa-6">
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-row>
-          <v-col cols="12" lg="4" sm="6" md="6" class="mt-4">
+          <v-col cols="12" lg="4" sm="6" md="6" class="mt-4 ">
             <h4 class="mb-2">Model Name</h4>
             <v-autocomplete
               ref="model"
@@ -43,10 +45,10 @@
             ></v-text-field>
           </v-col>
         </v-row>
-        <v-row
+         <v-row
           ><v-col lg="12" sm="12" md="12" xs="12">
-            <h4>Colors Available</h4>
-            <v-autocomplete
+             <h4>Colors Available</h4>
+             <v-autocomplete
               key=""
               ref="model"
               outlined
@@ -62,23 +64,28 @@
               item-value="color_id"
               return-object
             >
+             
             </v-autocomplete>
           </v-col>
         </v-row>
         <v-row class="">
-          <v-col cols="12" lg="6" sm="6" md="6" class="mt-4">
+           <v-col cols="12" lg="6" sm="6" md="6" class="mt-4">
             <h4>Product Description</h4>
             <v-textarea
               name="input-8-4"
               ref="product_description"
               outlined
               rows="8"
+              
               :rules="descripRules"
               v-model="product_description"
             ></v-textarea>
+           
+           
           </v-col>
           <v-col cols="12" lg="6" sm="12" md="12">
             <v-row>
+
               <v-col cols="12" lg="12" sm="12" md="12" class="mt-4">
                 <h4 class="mb-2">Available Size</h4>
                 <v-radio-group
@@ -94,95 +101,99 @@
               </v-col>
             </v-row>
             <v-row>
-              <v-col
-                v-if="sizeType == 'size'"
-                cols="12"
-                lg="12"
-                sm="12"
-                md="12"
-              >
-                <v-autocomplete
-                  key=""
-                  ref="model"
-                  outlined
-                  v-model="sizeChart"
-                  @change="generatePrice"
-                  :items="sizeList"
-                  chips
-                  clearable
-                  deletable-chips
-                  multiple
-                  small-chips
-                  item-text="size_label"
-                  item-value="size_rank"
-                  return-object
-                >
-                </v-autocomplete>
-              </v-col>
-              <v-col v-if="sizeType == 'cm'" cols="12" lg="12" sm="12" md="12">
-                <v-autocomplete
-                  key=""
-                  ref="model"
-                  outlined
-                  v-model="cmChart"
-                  :rules="sizeRules"
-                  :items="cmList"
-                  chips
-                  @change="generatePrice"
-                  clearable
-                  deletable-chips
-                  multiple
-                  small-chips
-                  item-text="size"
-                  item-value="size"
-                  return-object
-                >
-                </v-autocomplete>
-              </v-col>
+               <v-col
+            v-if="sizeType == 'size'"
+            cols="12"
+            
+            lg="12"
+            sm="12"
+            md="12"
+          >
+            
+            <v-autocomplete
+              key=""
+              ref="model"
+              outlined
+              v-model="sizeChart"
+              @change="generatePrice"
+              :items="sizeList"
+              chips
+              clearable
+              deletable-chips
+              multiple
+              small-chips
+              item-text="size_label"
+              item-value="size_rank"
+              return-object
+            >
+           
+            </v-autocomplete>
+          </v-col>
+          <v-col
+            v-if="sizeType == 'cm'"
+            cols="12"
+           
+            lg="12"
+            sm="12"
+            md="12"
+          >
+           
+            <v-autocomplete
+              key=""
+              ref="model"
+              outlined
+              v-model="cmChart"
+              :rules="sizeRules"
+              :items="cmList"
+              chips
+               @change="generatePrice"
+              clearable
+              deletable-chips
+              multiple
+              small-chips
+              item-text="size"
+              item-value="size"
+              return-object
+            >
+            </v-autocomplete>
+          </v-col>
+         
             </v-row>
           </v-col>
-        </v-row>
 
-        <v-row>
-          <v-col v-if="tableShow == true" lg="12" sm="12" md="12" xs="12">
-            <v-data-table
-              :hide-default-footer="true"
-              loading-text="Loading... Please wait"
-              :headers="headers"
-              :items="priceTag"
-              :search="search"
-            >
-              <template
-                v-if="sizeType == 'size'"
-                v-slot:item.agegroup="{ item }"
-              >
-                <v-text-field
-                  class="ma-2"
-                  solo
-                  placeholder="10-15"
-                  v-model="item.agegroup"
-                  @click="editInput(item)"
-                >
-                </v-text-field>
-              </template>
-              <template v-slot:item.price="{ item }">
-                <v-text-field
-                  class="ma-2"
-                  solo
-                  v-model="item.price"
-                  @click="editInput(item)"
-                >
-                </v-text-field>
-              </template>
-            </v-data-table>
-          </v-col>
-        </v-row>
+         
 
+         
+        </v-row>
+    
+         <v-row
+          >
+          <v-col v-if="tableShow==true" lg="12" sm="12" md="12" xs="12">
+             <v-data-table 
+                 :hide-default-footer="true"
+                
+                 loading-text="Loading... Please wait" 
+               :headers="headers" :items="priceTag" :search="search">
+                <template v-if="sizeType=='size'" v-slot:item.agegroup="{ item }">
+              <v-text-field  class="ma-2" solo placeholder="10-15" v-model="item.agegroup" @click="editInput(item)">
+           
+              </v-text-field>
+          </template>
+                <template v-slot:item.price="{ item }">
+              <v-text-field  class="ma-2" solo  v-model="item.price" @click="editInput(item)">
+           
+              </v-text-field>
+          </template>
+               </v-data-table>
+            </v-col>
+            </v-row>
+             
         <v-row>
+           
           <v-col lg="12" sm="12" md="12" xs="12">
             <template>
               <v-sheet class="mx-auto" elevation="8" max-width="1300">
-                <div class="d-flex justify-space-between">
+                <div class=" d-flex justify-space-between">
                   <h3 class="ml-3 mt-2">Attachment(s)</h3>
                   <v-btn
                     v-show="!hidden"
@@ -254,7 +265,7 @@
                             )
                           "
                           color="red"
-                          class="mt-2 ml-4 pa-0 text-sm-h5 text-lg-h4"
+                          class=" mt-2 ml-4 pa-0 text-sm-h5 text-lg-h4"
                           >mdi-delete</v-icon
                         >
                       </v-row>
@@ -322,7 +333,9 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="primary" text @click="success = false"> OK </v-btn>
+              <v-btn color="primary" text @click="success = false">
+                OK
+              </v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -356,8 +369,7 @@
 
 <script>
 import ImageViewer from "~/components/ImageViewer.vue";
-const sorter2 = (sortBy) => (a, b) =>
-  a[sortBy].toLowerCase() > b[sortBy].toLowerCase() ? 1 : -1;
+const sorter2 = (sortBy) => (a, b) => a[sortBy].toLowerCase() > b[sortBy].toLowerCase() ? 1 : -1;
 
 export default {
   props: ["editItem", "currentIns"],
@@ -365,7 +377,7 @@ export default {
   name: "EditProduct",
   components: { ImageViewer },
 
-  data: (vm) => ({
+  data: vm => ({
     date: "",
     icon: "mdi-checkbox-blank-outline",
     menu1: false,
@@ -383,69 +395,78 @@ export default {
     name: null,
     status: "new",
     imageView: false,
-
+   
     category: "",
     preview_list: [],
     image_list: [],
     test: null,
-
+   
+   
     files: [],
     passFile: [],
     categoryFilter: null,
     attachedImages: null,
     propi: null,
-
-    tableShow: false,
-
-    sizeChart: [],
-    cmChart: [],
-
+    
+    tableShow:false,
+   
+    sizeChart:[],
+    cmChart:[],
+  
+    
+  
+    
+   
     cmList: ["70", "75", "80", "85", "90", "95", "100"],
-
+   
     size: "",
     sizeList: [],
-    sizeRules: [(v) => !!v || "Required"],
-    color: [],
+    sizeRules: [v => !!v || "Required"],
+     color: [],
     colorList: [],
-    colorRules: [(v) => !!v || "Required"],
-
-    sizefinallist: [],
-
+    colorRules: [v => !!v || "Required"],
+   
+  
+    sizefinallist:[],
+   
     product_description: "",
-
+   
     selected: [],
     product_name: "",
     price: "",
     sizeType: "size",
-    search: "",
+    search:"",
     tas: "",
-    productRules: [(v) => !!v || "Required"],
-    categoryRules: [(v) => !!v || "Required"],
-    descripRules: [(v) => !!v || "Required"],
-    typeRules: [(v) => !!v || "Required"],
-    desigRules: [(v) => !!v || "Required"],
-    modelRules: [(v) => !!v || "Required"],
-    priceRules: [(v) => !!v || "Required"],
-
+    productRules: [v => !!v || "Required"],
+    categoryRules: [v => !!v || "Required"],
+    descripRules: [v => !!v || "Required"],
+    typeRules: [v => !!v || "Required"],
+    desigRules: [v => !!v || "Required"],
+    modelRules: [v => !!v || "Required"],
+    priceRules: [v => !!v || "Required"],
+   
     modelList: [],
-    headers: [],
-    cmheaders: [
-      { text: "Label", value: "label", sortable: false, width: 10 },
-      { text: "Price", value: "price", sortable: false, width: 20 },
-    ],
-    sizeheaders: [
-      { text: "Label", value: "label", sortable: false, width: 10 },
-      { text: "Age Group", value: "agegroup", sortable: false, width: 30 },
-      { text: "Price", value: "price", sortable: false, width: 30 },
-    ],
-    priceTag: [],
+     headers:[],
+      cmheaders: [
+        { text: "Label", value: "label",sortable: false,width:10},
+        { text: "Price", value: "price",sortable: false,width:20},
+      ],
+       sizeheaders: [
+        { text: "Label", value: "label",sortable: false,width:10},
+         { text: "Age Group", value: "agegroup",sortable: false,width:30},
+        { text: "Price", value: "price",sortable: false,width:30},
+      ],
+      priceTag: [],
+   
   }),
   async mounted() {
+    
     this.Details();
     this.setDetails();
     this.valid = true;
   },
 
+ 
   computed: {
     //for responsive image width
     width() {
@@ -479,7 +500,7 @@ export default {
     },
     filecount() {
       return this.preview_list.length;
-    },
+    }
   },
 
   watch: {
@@ -487,177 +508,156 @@ export default {
     editItem(old, newn) {
       this.setDetails();
     },
-
+   
     //filtering department based on category
+    
   },
 
   methods: {
     // function to set detailes of selected item
-    chartChanged() {
-      this.tableShow = false;
-      if (this.sizeType === "size") {
-        this.cmChart = [];
-      } else if (this.sizeType === "cm") {
-        this.sizeChart = [];
+ chartChanged()
+    {
+     
+      this.tableShow=false
+      if(this.sizeType==='size')
+      {
+      this.cmChart=[]
+      
+      }
+      else if(this.sizeType==='cm')
+      {
+      this.sizeChart=[]
+
       }
     },
-    editInput(item) {
-      let resulti = this.priceTag;
-      let obj = resulti.find((o) => o["label"] === item.label);
+    editInput(item){
+            
+            let resulti=this.priceTag;
+             let obj = resulti.find(o => o['label'] === item.label);
+            
     },
-    initialGeneratePrice() {
-      this.priceTag = [];
-      if (this.sizeType === "size") {
-        this.headers = this.sizeheaders;
-
-        for (var i = 0; i < this.sizeChart.length; i++) {
-          var agegroup = this.editItem.price[i]["'agegroup'"];
-          var price = this.editItem.price[i]["'price'"];
-          var obj = {
-            label: this.sizeChart[i].size_label,
-            rank: this.sizeChart[i].size_rank,
-            agegroup: agegroup,
-            price: price,
-          };
-
-          this.priceTag.push(obj);
+    initialGeneratePrice()
+    {
+      
+     
+      this.priceTag=[];
+      if(this.sizeType==='size')
+      { 
+        this.headers=this.sizeheaders;
+        
+        for(var i=0;i<this.sizeChart.length;i++)
+        {
+          var agegroup=this.editItem.price[i]["'agegroup'"];
+          var price=this.editItem.price[i]["'price'"];
+          var obj={'label':this.sizeChart[i].size_label,'rank':this.sizeChart[i].size_rank,'agegroup':agegroup,'price':price};
+         
+           this.priceTag.push(obj)
         }
-        let objs = this.priceTag;
-        objs.sort(sorter2("rank"));
-        this.priceTag = objs;
-      } else if (this.sizeType === "cm") {
-        this.headers = this.cmheaders;
-        for (var i = 0; i < this.cmChart.length; i++) {
-          this.priceTag.push({
-            label: this.cmChart[i],
-            price: this.editItem.price[i]["'price'"],
-          });
-        }
-        let objs = this.priceTag;
-        objs.sort(sorter2("label"));
-        this.priceTag = objs;
+         let objs = this.priceTag;
+         objs.sort(sorter2('rank'));
+         this.priceTag=objs;
       }
-      this.tableShow = true;
+           
+      else if(this.sizeType==='cm')
+      {
+        this.headers=this.cmheaders
+        for(var i=0;i<this.cmChart.length;i++)
+        {
+          this.priceTag.push({'label':this.cmChart[i],'price':this.editItem.price[i]["'price'"]})
+        }
+          let objs = this.priceTag;
+          objs.sort(sorter2('label'));
+          this.priceTag=objs;
+      }
+      this.tableShow=true
       // console.log(this.priceTag)
     },
-    generatePrice() {
+    generatePrice()
+    {
+     
       // console.log(this.sizeType)
-      this.priceTag = [];
-      if (this.sizeType === "size") {
-        this.headers = this.sizeheaders;
+      this.priceTag=[];
+      if(this.sizeType==='size')
+      { 
+        this.headers=this.sizeheaders;
         // console.log(this.sizeChart)
-        for (const element of this.sizeChart) {
+        for(const element of this.sizeChart)
+        {
           this.sizefinallist.push(element.size_label);
-          this.priceTag.push({
-            label: element.size_label,
-            rank: element.size_rank,
-            agegroup: "",
-            price: 0,
-          });
+          this.priceTag.push({'label':element.size_label,'rank':element.size_rank,'agegroup':'','price':0})
         }
-        let objs = this.priceTag;
-        objs.sort(sorter2("rank"));
-        this.priceTag = objs;
-      } else if (this.sizeType === "cm") {
-        this.headers = this.cmheaders;
-        for (const element of this.cmChart) {
-          this.sizefinallist.push(element);
-          this.priceTag.push({ label: element, price: 0 });
-        }
-        let objs = this.priceTag;
-        objs.sort(sorter2("label"));
-        this.priceTag = objs;
+         let objs = this.priceTag;
+         objs.sort(sorter2('rank'));
+         this.priceTag=objs;
       }
-      this.tableShow = true;
+           
+      else if(this.sizeType==='cm')
+      {
+        this.headers=this.cmheaders
+          for(const element of this.cmChart)
+          {
+             this.sizefinallist.push(element);
+            this.priceTag.push({'label':element,'price':0})
+          }
+          let objs = this.priceTag;
+          objs.sort(sorter2('label'));
+          this.priceTag=objs;
+      }
+      this.tableShow=true
       // console.log(this.priceTag)
     },
-async  fetchImageAndConvertToBase64(imageUrl) {
-  console.log('imageUrl', imageUrl);
-  try {
-    // Fetch the image from the public folder on 000webhost
-    const response = await fetch("https://sadhanagarments2013.000webhostapp.com/public/uploads/abc.jpg");
-    console.log('repsonse', response);
-    if (!response.ok) {
-      throw new Error('Failed to fetch the image.');
-    }
-
-    // Convert the image to Blob
-    const imageBlob = await response.blob();
-
-    // Create a FileReader to read the Blob as Base64
-    const reader = new FileReader();
-    reader.readAsDataURL(imageBlob);
-
-    return new Promise((resolve, reject) => {
-      reader.onloadend = () => {
-        if (reader.result) {
-          // Resolve with the Base64 data
-          resolve(reader.result);
-        } else {
-          reject(new Error('Failed to convert the image to Base64.'));
-        }
-      };
-    });
-  } catch (error) {
-    console.error('Error fetching and converting image:', error);
-    throw error;
-  }
-},
-
-
-
     async setDetails() {
-      // console.log("heweoauiu")
-      // console.log("count",this.editItem.colors_available.length)
-      this.cmChart = [];
-      this.color = [];
-      this.sizeChart = [];
-      this.model = [];
+        // console.log("heweoauiu")
+        // console.log("count",this.editItem.colors_available.length)
+        this.cmChart=[];
+        this.color=[];
+        this.sizeChart=[];
+        this.model=[];
       this.product_description = this.editItem.product_description;
       this.product_name = this.editItem.product_name;
       this.status = this.editItem.status;
       // this.color = this.editItem.colors_available;
-      for (let i = 0; i < this.editItem.colors_available.length; i++) {
-        // console.log("i = ",i);
-        var id = this.editItem.colors_available[i]["id"];
-        var name = this.editItem.colors_available[i]["name"];
-        var hexvalue = this.editItem.colors_available[i]["hexvalue"];
-        var newobj = {
-          color_id: id,
-          color_name: name,
-          color_hexvalue: hexvalue,
-        };
-        // console.log(newobj)
-        this.color.push(newobj);
-      }
-
-      if (this.editItem.sizetype == "cm") {
-        for (var i = 0; i < this.editItem.price.length; i++) {
-          this.cmChart.push(this.editItem.price[i]["'label'"]);
+        for(let i=0;i<this.editItem.colors_available.length;i++)
+        {
+          // console.log("i = ",i);
+          var id=this.editItem.colors_available[i]["id"];
+          var name=this.editItem.colors_available[i]["name"];
+          var hexvalue=this.editItem.colors_available[i]["hexvalue"];
+          var newobj={'color_id':id,'color_name':name,'color_hexvalue':hexvalue};
+          // console.log(newobj)
+            this.color.push(newobj)
         }
+         
+      if(this.editItem.sizetype=='cm')
+      {
+      for (var i = 0; i < this.editItem.price.length; i++) {
+          this.cmChart.push(this.editItem.price[i]["'label'"])
+        
       }
-      if (this.editItem.sizetype == "size") {
-        for (var i = 0; i < this.editItem.price.length; i++) {
-          var label = this.editItem.price[i]["'label'"];
-          for (const element of this.sizeList) {
-            if (element.size_label == label) {
-              this.sizeChart.push(element);
-            }
+      }
+      if(this.editItem.sizetype=='size')
+      {
+      for (var i = 0; i < this.editItem.price.length; i++) {
+         var label=this.editItem.price[i]["'label'"];
+         for(const element of this.sizeList)
+        {
+         
+          if(element.size_label==label)
+          {
+                this.sizeChart.push(element)
           }
+          
         }
+      }
       }
       this.available_size = this.editItem.available_size;
       this.price = this.editItem.price;
       this.sizetype = this.editItem.sizetype;
-      this.model = {
-        model_id: this.editItem.model_id,
-        model_name: this.editItem.model_name,
-        status: "active",
-      };
-      console.log("model=>", this.model);
-      this.sizeType = this.editItem.sizetype;
-
-      this.tableShow = true;
+      this.model = {'model_id':this.editItem.model_id,'model_name':this.editItem.model_name,'status':'active'};
+       console.log("model=>",this.model)
+     this.sizeType=this.editItem.sizetype;
+      
+      this.tableShow=true;
       this.status = this.editItem.status;
       this.attachedImages = this.editItem.attached_images;
       console.log(this.attachedImages);
@@ -670,77 +670,40 @@ async  fetchImageAndConvertToBase64(imageUrl) {
       this.passFile = [];
       this.preview_list = [];
       this.passFile = [];
-      console.log("note efre");
       //loop to fetch images from local storage
       for (var i = 0; i < this.attachedImages.length; i++) {
-        console.log("note efre", i);
         try {
-          let url =
-            "https://sadhanagarments2013.000webhostapp.com/public/product/image/new/" + 
-             this.attachedImages[i];
+          let url = require("../../backend/public/uploads/" +
+            this.attachedImages[i]);
 
           //converting image to data url
-          // const toDataURL = url =>
-          //   fetch(url)
-          //     .then(response => response.blob())
-          //     .then(
-          //       blob =>
-          //         new Promise((resolve, reject) => {
-          //           const reader = new FileReader();
-          //           reader.onloadend = () => resolve(reader.result);
-          //           reader.onerror = reject;
-          //           reader.readAsDataURL(blob);
-          //         })
-          //     );
+          const toDataURL = url =>
+            fetch(url)
+              .then(response => response.blob())
+              .then(
+                blob =>
+                  new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onloadend = () => resolve(reader.result);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(blob);
+                  })
+              );
           let imgname = this.attachedImages[i];
-          // toDataURL(url).then(dataUrl => {
-          let dataUrl = url;
-          console.log("haiiii sad");
-         
-          this.preview_list.push(dataUrl);
-          console.log("preivew", this.preview_list);
-          // console.log('name',imgname)
-        this.fetchImageAndConvertToBase64(imgname)
-  .then(base64Data => {
-    console.log(base64Data); // You can use the Base64 data here
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-          // var fileData = this.dataURLtoFile(dataUrl, imgname);
-          // console.log("hwre");
-          // this.passFile.push(fileData);
-          // console.log("passFile", this.passFile);
-          // this.image_list.push(fileData.name);
-          // });
+          toDataURL(url).then(dataUrl => {
+            this.preview_list.push(dataUrl);
+            // console.log('name',imgname)
+            var fileData = this.dataURLtoFile(dataUrl, imgname);
+
+            this.passFile.push(fileData);
+            this.image_list.push(fileData.name);
+          });
         } catch (e) {}
       }
       // console.log(this.preview_list)
       this.designation = this.editItem.designation_id;
       this.selectedDesignation = this.editItem.designation_id;
       this.initialGeneratePrice();
-    },
-    async imageUrlToDataUrl(imageUrl) {
-      // Use Axios to make a GET request
-      fetch(imageUrl, {
-        method: "POST",
-        mode: "no-cors",
-      })
-        .then((response) => {
-          console.log(response);
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response;
-        })
-        .then((data) => {
-          // Handle the response data
-          console.log("Data:", data);
-        })
-        .catch((error) => {
-          // Handle errors
-          console.error("Fetch Error:", error.message);
-        });
     },
     //will be invoked when image orientation changes
     edited(file, index) {
@@ -779,7 +742,7 @@ async  fetchImageAndConvertToBase64(imageUrl) {
     async Details() {
       const response = await this.$axios
         .get(`models`)
-        .then((res) => {
+        .then(res => {
           var i = 0;
 
           console.log(res.data.Model_Data.length);
@@ -787,13 +750,13 @@ async  fetchImageAndConvertToBase64(imageUrl) {
             this.modelList.push(res.data.Model_Data[i]);
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
-      this.colorList = [];
-      const response2 = await this.$axios
+        this.colorList=[]
+ const response2 = await this.$axios
         .get(`colors`)
-        .then((res) => {
+        .then(res => {
           var i = 0;
 
           console.log(res.data.Color_Data.length);
@@ -801,12 +764,12 @@ async  fetchImageAndConvertToBase64(imageUrl) {
             this.colorList.push(res.data.Color_Data[i]);
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
-      const response3 = await this.$axios
+const response3 = await this.$axios
         .get(`size`)
-        .then((res) => {
+        .then(res => {
           var i = 0;
 
           console.log(res.data.Size_Data.length);
@@ -814,7 +777,7 @@ async  fetchImageAndConvertToBase64(imageUrl) {
             this.sizeList.push(res.data.Size_Data[i]);
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
 
@@ -834,7 +797,7 @@ async  fetchImageAndConvertToBase64(imageUrl) {
       this.passFile.splice(b, 1);
     },
     //when image loads in file input this method will be invoked
-    previewMultiImage: function (event) {
+    previewMultiImage: function(event) {
       this.dialog = false;
 
       var count = this.files.length;
@@ -844,7 +807,7 @@ async  fetchImageAndConvertToBase64(imageUrl) {
       if (this.files) {
         while (count--) {
           var reader = new FileReader();
-          reader.onload = (e) => {
+          reader.onload = e => {
             this.preview_list.push(e.target.result);
           };
           this.image_list.push(this.files[index].name);
@@ -871,64 +834,56 @@ async  fetchImageAndConvertToBase64(imageUrl) {
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     },
     //runs when click on submit button
-
+   
     async submit() {
       console.log(this.$refs.form.validate());
 
+      
       if (this.$refs.form.validate()) {
-        let data = new FormData();
-        data.append("product_name", this.product_name);
+         let data = new FormData();
+         
+         data.append("product_name", this.product_name);
         data.append("product_description", this.product_description);
         data.append("status", this.status);
-
-        for (var index = 0; index < this.priceTag.length; index++) {
-          data.append(`available_size[${index}]`, this.priceTag[index].label);
+       
+       
+             for (var index = 0; index < this.priceTag.length; index++) {
+            data.append(`available_size[${index}]`, this.priceTag[index].label);
+            
         }
-
         for (var index = 0; index < this.color.length; index++) {
-          data.append(`available_colors[${index}]`, this.color[index].color_id);
+            data.append(`available_colors[${index}]`, this.color[index].color_id);
+            // data.append(`available_colors[${index}]['name']`, this.color[index].color_name);
+            // data.append(`available_colors[${index}]['hexvalue']`, this.color[index].color_hexvalue);
+            
         }
-
-        if (this.sizeType == "size") {
-          for (var index = 0; index < this.priceTag.length; index++) {
-            data.append(
-              `pricelist[${index}]['label']`,
-              this.priceTag[index].label
-            );
-            data.append(
-              `pricelist[${index}]['price']`,
-              this.priceTag[index].price
-            );
-            data.append(
-              `pricelist[${index}]['agegroup']`,
-              this.priceTag[index].agegroup
-            );
-          }
-        } else if (this.sizeType == "cm") {
-          for (var index = 0; index < this.priceTag.length; index++) {
-            data.append(
-              `pricelist[${index}]['label']`,
-              this.priceTag[index].label
-            );
-            data.append(
-              `pricelist[${index}]['price']`,
-              this.priceTag[index].price
-            );
-          }
+        if(this.sizeType=='size')
+        {
+        for (var index = 0; index < this.priceTag.length; index++) {
+            data.append(`pricelist[${index}]['label']`, this.priceTag[index].label);
+            data.append(`pricelist[${index}]['price']`, this.priceTag[index].price);
+            data.append(`pricelist[${index}]['agegroup']`, this.priceTag[index].agegroup);
+            
         }
-
+        }
+        else if(this.sizeType=='cm')
+        {
+          for (var index = 0; index < this.priceTag.length; index++) {
+            data.append(`pricelist[${index}]['label']`, this.priceTag[index].label);
+            data.append(`pricelist[${index}]['price']`, this.priceTag[index].price); 
+         }
+        }
         data.append("price", this.priceTag);
-        data.append("sizetype", this.sizeType);
+       data.append("sizetype", this.sizeType);
         data.append("model_name", this.model.model_name);
         data.append("model_id", this.model.model_id);
         data.append("status", this.status);
-        data.append("operation", "Update");
+        data.append("operation","Update");
 
         data.append("attached_images", this.attachedImages);
         data.append("removecount", this.attachedImages.length);
         data.append("file_count", this.filecount);
-        data.append("id", this.editItem.product_id);
-
+         data.append("id", this.editItem.product_id);
         var files1 = this.passFile;
         var totalfiles = this.passFile.length;
 
@@ -943,54 +898,46 @@ async  fetchImageAndConvertToBase64(imageUrl) {
           data.append("oldfiles[]", oldFiles[index]);
         }
 
-        for (var pair of data.entries()) {
-          console.log(pair[0] + ", " + pair[1]);
-        }
+                     for (var pair of data.entries()) {
+        console.log(pair[0]+ ', ' + pair[1]);
+                    }
 
-        try {
-          const response = await fetch(
-            "https://sadhanagarments2013.000webhostapp.com/public/product/update/" +
-              this.editItem.product_id,
-            {
-              method: "POST",
-              body: data,
+      
+        const response = await this.$axios.post(
+          "product/update/" + this.editItem.product_id,
+          data,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data"
             }
-          );
-
-          if (response.ok) {
-            const responseData = await response.json();
-            console.log(responseData);
-
-            if (response.status === 201 && responseData.status === 201) {
-              this.closeDialog("success");
-            } else {
-              this.closeDialog("failed");
-            }
-          } else {
-            console.log("Fetch request failed with status:", response.status);
           }
-        } catch (error) {
-          console.error("Error:", error);
+        );
+        console.log(response)
+        if (response.status && response.data.status === 201) {
+          this.closeDialog("success");
+        } else {
+          this.closeDialog("failed");
         }
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style>
 .v-application .text-h5 {
-  font-size: 1.5rem !important;
-  font-weight: 400;
-  font-size: 40px;
-  text-align: center;
-  line-height: 4rem;
-  letter-spacing: normal !important;
-  font-family: "Roboto", sans-serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+    line-height: 4rem;
+    letter-spacing: normal !important;
+    font-family: "Roboto", sans-serif !important;
 }
 .v-application .background {
-  background-color: #17a2b8 !important;
-  border-color: #17a2b8 !important;
+  
+  background-color:  #17a2b8 !important;
+  border-color:  #17a2b8 !important;
 }
 #no-background-hover::before {
   background-color: transparent !important;

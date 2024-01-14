@@ -714,95 +714,94 @@ export default {
       this.passFile = [];
     },
     //invokes when submit button is clicked
-   async submit() {
-  this.$refs.form.validate();
-  console.log(this.$refs.form.validate());
-  console.log("color");
-  console.log(this.color);
-  if (this.$refs.form.validate()) {
-    let data = new FormData();
-    console.log("priceTag", this.priceTag);
-    data.append("product_name", this.product_name);
-    data.append("product_description", this.product_description);
-    data.append("status", this.status);
+    async submit() {
+      this.$refs.form.validate();
+      console.log(this.$refs.form.validate());
+      console.log("color");
+      console.log(this.color);
+      if (this.$refs.form.validate()) {
+        let data = new FormData();
+        console.log("priceTag", this.priceTag);
+        data.append("product_name", this.product_name);
+        data.append("product_description", this.product_description);
+        data.append("status", this.status);
 
-    this.image_list.forEach((item) => data.append("file_names[]", item));
-    this.preview_list.forEach((item) => data.append("files_array[]", item));
-
-    for (var index = 0; index < this.priceTag.length; index++) {
-      data.append(`available_size[${index}]`, this.priceTag[index].label);
-    }
-
-    for (var index = 0; index < this.color.length; index++) {
-      data.append(`available_colors[${index}]`, this.color[index].color_id);
-    }
-    if (this.sizeType == "size") {
-      for (var index = 0; index < this.priceTag.length; index++) {
-        data.append(
-          `pricelist[${index}]['label']`,
-          this.priceTag[index].label
-        );
-        data.append(
-          `pricelist[${index}]['price']`,
-          this.priceTag[index].price
-        );
-        data.append(
-          `pricelist[${index}]['agegroup']`,
-          this.priceTag[index].agegroup
-        );
-      }
-    } else if (this.sizeType == "cm") {
-      for (var index = 0; index < this.priceTag.length; index++) {
-        data.append(
-          `pricelist[${index}]['label']`,
-          this.priceTag[index].label
-        );
-        data.append(
-          `pricelist[${index}]['price']`,
-          this.priceTag[index].price
-        );
-      }
-    }
-    data.append("price", this.priceTag);
-    data.append("sizetype", this.sizeType);
-    data.append("model_name", this.model.model_name);
-    data.append("file_count", this.filecount);
-    data.append("model_id", this.model.model_id);
-    var files1 = this.passFile;
-    var totalfiles = this.passFile.length;
-    for (var index = 0; index < totalfiles; index++) {
-      data.append("files[]", files1[index]);
-    }
-    for (var pair of data.entries()) {
-      console.log(pair[0] + ", " + pair[1]);
-    }
-
-    try {
-      const response = await fetch("https://sadhanagarments2013.000webhostapp.com/public/product/add", {
-        method: "POST",
-        body: data,
-      });
-
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log(responseData);
-
-        if (responseData.error) {
-          console.log(responseData.messages);
-          this.closeDialog("failed");
-        } else {
-          console.log(responseData.messages);
-          this.closeDialog("success");
+        this.image_list.forEach((item) => data.append("file_names[]", item));
+        this.preview_list.forEach((item) => data.append("files_array[]", item));
+        
+          for (var index = 0; index < this.priceTag.length; index++) {
+            data.append(`available_size[${index}]`, this.priceTag[index].label);
+          }
+ 
+        for (var index = 0; index < this.priceTag.length; index++) {
+          data.append(`available_size[${index}]`, this.priceTag[index].label);
         }
-      } else {
-        console.log("Fetch request failed with status:", response.status);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
-}
+        for (var index = 0; index < this.color.length; index++) {
+          data.append(`available_colors[${index}]`, this.color[index].color_id);
+        }
+        if (this.sizeType == "size") {
+          for (var index = 0; index < this.priceTag.length; index++) {
+            data.append(
+              `pricelist[${index}]['label']`,
+              this.priceTag[index].label
+            );
+            data.append(
+              `pricelist[${index}]['price']`,
+              this.priceTag[index].price
+            );
+            data.append(
+              `pricelist[${index}]['agegroup']`,
+              this.priceTag[index].agegroup
+            );
+          }
+        } else if (this.sizeType == "cm") {
+          for (var index = 0; index < this.priceTag.length; index++) {
+            data.append(
+              `pricelist[${index}]['label']`,
+              this.priceTag[index].label
+            );
+            data.append(
+              `pricelist[${index}]['price']`,
+              this.priceTag[index].price
+            );
+          }
+        }
+        data.append("price", this.priceTag);
+        data.append("sizetype", this.sizeType);
+        data.append("model_name", this.model.model_name);
+        data.append("file_count", this.filecount);
+        data.append("model_id", this.model.model_id);
+        var files1 = this.passFile;
+        var totalfiles = this.passFile.length;
+        for (var index = 0; index < totalfiles; index++) {
+          data.append("files[]", files1[index]);
+        }
+        for (var pair of data.entries()) {
+          console.log(pair[0] + ", " + pair[1]);
+        }
+        await this.$axios
 
+          .post("product/add", data, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          })
+          .then((res) => {
+            console.log(res);
+            if (res.data.error) {
+              console.log(res.data.messages);
+              this.closeDialog("failed");
+            } else {
+              console.log(res.data.messages);
+              this.closeDialog("success");
+            }
+          })
+
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    },
   },
 };
 </script>

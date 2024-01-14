@@ -56,7 +56,7 @@ export default {
         if(cook!=null)
                    {
                      console.log("nonempty")
-                       window.location.href = "http://localhost:3000"
+                       window.location.href = "http://localhost:3000/"
                      
                      
                    }
@@ -94,65 +94,73 @@ export default {
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 },
          async submit() {
-  console.log('submitted');
-  
-  if (this.$refs.form.validate()) {
-    const formData = new FormData();
-    formData.append('email', this.email);
-    formData.append('password', this.password);
-  
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
-
-    try {
-      const response = await fetch(
-        "https://sadhanagarments2013.000webhostapp.com/public/admin/validate",
-        {
-          method: "POST",
-          body: formData
+     
+      // console.log(this.$refs.form.validate());
+      console.log('submited')
+      if (this.$refs.form.validate()) {
+        let data = new FormData()
+        data.append('email', this.email)
+        data.append('password', this.password)
+      
+        for (var pair of data.entries()) {
+          console.log(pair[0] + ', ' + pair[1])
         }
-      );
-
-      if (response.ok) {
-         console.log(response);
-        const responseData = await response.json();
-        if (responseData.status === 201) {
-          this.$refs.form.reset();
-          console.log(responseData.login_data[0].countl);
-          var get_countuser = responseData.login_data[0].countl;
-          var get_username = responseData.login_data[0].name;
-          var get_useremail = responseData.login_data[0].email;
-
-          console.log("count  ", get_countuser);
-          console.log(get_username);
-          console.log(get_useremail);
-
-          if (parseInt(get_countuser) === 1) {
-            console.log("true");
-            this.error = " ";
-            console.log(get_username);
-            this.setCookie("username", get_username, 1);
-            console.log("cookie", this.getCookie("username"));
-            if (this.getCookie("username") !== " ") {
-              window.location.href = "http://localhost:3000";
+        var username='';
+        var useremail='';
+        const response = await this.$axios.post(
+            "http://sadhanagarments.free.nf/public/admin/validate",
+            data,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data"
+              }
             }
-          } else {
-            console.log("False");
-            this.error = "Invalid Credentials";
-          }
-        } else {
-          console.log("Error in response data:", responseData);
-        }
-      } else {
-        console.log("Error in response:", response);
+          );
+          if(response.status&&response.data.status===201)
+       {
+             
+           this.$refs.form.reset();
+           console.log(response.data)
+            console.log(response.data.login_data[0].countl)
+            var get_countuser=response.data.login_data[0].countl;
+            var get_username=response.data.login_data[0].name;
+            var get_useremail=response.data.login_data[0].email;
+          
+            console.log("count  ",get_countuser)
+            console.log(get_username)
+            console.log(get_useremail)
+            
+            if(parseInt(get_countuser)==1)
+            {
+                console.log("true")
+                 this.error=" "
+                 console.log(get_username)
+                   this. setCookie("username",get_username,1);
+                   console.log("cookie",this.getCookie("username"));
+                   if(this.getCookie("username")!=' ')
+                   {
+                     window.location.href = "http://localhost:3000/"
+                   }
+                  // let datai = new FormData()
+                  // datai.append('email', this.email)
+                  // datai.append('password', this.password)
+                  //  const responsei = await this.$axios.get("admin/login");
+                  // console.log(responsei)
+                 
+                //window.location.href = "https://mypitch.xyz/public/employee"
+            }
+            else{
+                 console.log("False");
+                 this.error="Invalid Credentials"
+            }
+       }  
+       else
+       {
+         
+           console.log(response)
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
-}
-
+      }
+    },
    }
 };
 </script>
