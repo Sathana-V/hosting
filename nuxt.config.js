@@ -44,7 +44,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL:'https://sadhanagarments.free.nf/public/'
+    baseURL:'http://sadhanagarments2013.in/public/'
   },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
