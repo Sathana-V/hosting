@@ -280,7 +280,7 @@ export default {
         // function to fetch records from database
         async details() {
             await this.$axios
-                .get("/models")
+                .get("/")
                 .then(res => {
                   console.log('guyioui', res);
                 this.models = res.data.Model_Data;
