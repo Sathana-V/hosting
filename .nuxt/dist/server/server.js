@@ -9052,11 +9052,11 @@ function shouldScrollToTop(route) {
 
 
 
-const _79a582be = () => interopDefault(__webpack_require__.e(/* import() | pages/colors */ 8).then(__webpack_require__.bind(null, 353)));
-const _06394c0b = () => interopDefault(__webpack_require__.e(/* import() | pages/login */ 10).then(__webpack_require__.bind(null, 354)));
-const _98a53562 = () => interopDefault(__webpack_require__.e(/* import() | pages/loginform */ 11).then(__webpack_require__.bind(null, 355)));
-const _b150b19c = () => interopDefault(__webpack_require__.e(/* import() | pages/products */ 12).then(__webpack_require__.bind(null, 356)));
-const _3c91a8f4 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 9).then(__webpack_require__.bind(null, 357)));
+const _79a582be = () => interopDefault(__webpack_require__.e(/* import() | pages/colors */ 8).then(__webpack_require__.bind(null, 312)));
+const _06394c0b = () => interopDefault(__webpack_require__.e(/* import() | pages/login */ 10).then(__webpack_require__.bind(null, 313)));
+const _98a53562 = () => interopDefault(__webpack_require__.e(/* import() | pages/loginform */ 11).then(__webpack_require__.bind(null, 314)));
+const _b150b19c = () => interopDefault(__webpack_require__.e(/* import() | pages/products */ 12).then(__webpack_require__.bind(null, 315)));
+const _3c91a8f4 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 9).then(__webpack_require__.bind(null, 316)));
 
 const emptyFn = () => {};
 external_vue_default.a.use(external_vue_router_default.a);
@@ -11082,13 +11082,13 @@ const layouts = {
   }
 });
 // CONCATENATED MODULE: ./.nuxt/components/index.js
-const AddModel = () => __webpack_require__.e(/* import() | components/add-model */ 1).then(__webpack_require__.bind(null, 307)).then(c => wrapFunctional(c.default || c));
-const AddProduct = () => __webpack_require__.e(/* import() | components/add-product */ 2).then(__webpack_require__.bind(null, 320)).then(c => wrapFunctional(c.default || c));
-const EditColor = () => __webpack_require__.e(/* import() | components/edit-color */ 3).then(__webpack_require__.bind(null, 319)).then(c => wrapFunctional(c.default || c));
-const EditProduct = () => __webpack_require__.e(/* import() | components/edit-product */ 4).then(__webpack_require__.bind(null, 321)).then(c => wrapFunctional(c.default || c));
+const AddModel = () => __webpack_require__.e(/* import() | components/add-model */ 1).then(__webpack_require__.bind(null, 266)).then(c => wrapFunctional(c.default || c));
+const AddProduct = () => __webpack_require__.e(/* import() | components/add-product */ 2).then(__webpack_require__.bind(null, 279)).then(c => wrapFunctional(c.default || c));
+const EditColor = () => __webpack_require__.e(/* import() | components/edit-color */ 3).then(__webpack_require__.bind(null, 278)).then(c => wrapFunctional(c.default || c));
+const EditProduct = () => __webpack_require__.e(/* import() | components/edit-product */ 4).then(__webpack_require__.bind(null, 280)).then(c => wrapFunctional(c.default || c));
 const ImageViewer = () => __webpack_require__.e(/* import() | components/image-viewer */ 5).then(__webpack_require__.bind(null, 195)).then(c => wrapFunctional(c.default || c));
-const LoginPage = () => __webpack_require__.e(/* import() | components/login-page */ 6).then(__webpack_require__.bind(null, 358)).then(c => wrapFunctional(c.default || c));
-const NuxtLogo = () => __webpack_require__.e(/* import() | components/nuxt-logo */ 7).then(__webpack_require__.bind(null, 359)).then(c => wrapFunctional(c.default || c));
+const LoginPage = () => __webpack_require__.e(/* import() | components/login-page */ 6).then(__webpack_require__.bind(null, 317)).then(c => wrapFunctional(c.default || c));
+const NuxtLogo = () => __webpack_require__.e(/* import() | components/nuxt-logo */ 7).then(__webpack_require__.bind(null, 318)).then(c => wrapFunctional(c.default || c));
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {
@@ -11357,7 +11357,7 @@ const setupProgress = axios => {
   // runtimeConfig
   const runtimeConfig = ctx.$config && ctx.$config.axios || {};
   // baseURL
-  const baseURL =  false ? undefined : runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://sadhanagarments2013.in/public/';
+  const baseURL =  false ? undefined : runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://sadhanagarments2013.in/backend/public/';
 
   // Create fresh objects for all default header scopes
   // Axios creates only one which is shared across SSR requests!

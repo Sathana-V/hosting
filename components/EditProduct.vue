@@ -673,24 +673,19 @@ export default {
       //loop to fetch images from local storage
       for (var i = 0; i < this.attachedImages.length; i++) {
         try {
-          let url = "https://sadhanagarments2013.in/public/uploads/" +
-            this.attachedImages[i];
+          let url = "https://sadhanagarments2013.in/backend/public/uploads/" +  this.attachedImages[i];
+          let proxyUrl = "https://sadhanagarments2013.in/backend/public/uploads/index.php?url=" + encodeURIComponent(url);
 
-          //converting image to data url
-          const toDataURL = url =>
-            fetch(url)
-              .then(response => response.blob())
-              .then(
-                blob =>
-                  new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.onloadend = () => resolve(reader.result);
-                    reader.onerror = reject;
-                    reader.readAsDataURL(blob);
-                  })
-              );
+          const toDataURL = proxyUrl => fetch(proxyUrl)
+  .then(response => response.blob())
+  .then(blob => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  }));
           let imgname = this.attachedImages[i];
-          toDataURL(url).then(dataUrl => {
+          toDataURL(proxyUrl).then(dataUrl => {
             this.preview_list.push(dataUrl);
             // console.log('name',imgname)
             var fileData = this.dataURLtoFile(dataUrl, imgname);
