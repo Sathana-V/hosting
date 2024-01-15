@@ -673,8 +673,8 @@ export default {
       //loop to fetch images from local storage
       for (var i = 0; i < this.attachedImages.length; i++) {
         try {
-          let url = require("../../backend/public/uploads/" +
-            this.attachedImages[i]);
+          let url = "https://sadhanagarments2013.in/public/uploads/" +
+            this.attachedImages[i];
 
           //converting image to data url
           const toDataURL = url =>
