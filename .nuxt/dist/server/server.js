@@ -11357,7 +11357,7 @@ const setupProgress = axios => {
   // runtimeConfig
   const runtimeConfig = ctx.$config && ctx.$config.axios || {};
   // baseURL
-  const baseURL =  false ? undefined : runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'http://sadhanagarments2013.in/public/';
+  const baseURL =  false ? undefined : runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://sadhanagarments2013.in/public/';
 
   // Create fresh objects for all default header scopes
   // Axios creates only one which is shared across SSR requests!
