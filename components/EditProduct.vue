@@ -679,8 +679,8 @@ export default {
       //loop to fetch images from local storage
       for (var i = 0; i < this.attachedImages.length; i++) {
         try {
-          let url = "https://sadhanagarments2013.in/backend/public/uploads/" +  this.attachedImages[i];
-          let proxyUrl = "https://sadhanagarments2013.in/backend/public/uploads/index.php?url=" + encodeURIComponent(url);
+          let url = "https://sadhanagarments2013.in/admin-backend/public/uploads/" +  this.attachedImages[i];
+          let proxyUrl = "https://sadhanagarments2013.in/admin-backend/public/uploads/index.php?url=" + encodeURIComponent(url);
 
           const toDataURL = proxyUrl => fetch(proxyUrl)
   .then(response => response.blob())

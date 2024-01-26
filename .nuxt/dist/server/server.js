@@ -9052,11 +9052,11 @@ function shouldScrollToTop(route) {
 
 
 
-const _79a582be = () => interopDefault(__webpack_require__.e(/* import() | pages/colors */ 8).then(__webpack_require__.bind(null, 312)));
-const _06394c0b = () => interopDefault(__webpack_require__.e(/* import() | pages/login */ 10).then(__webpack_require__.bind(null, 313)));
-const _98a53562 = () => interopDefault(__webpack_require__.e(/* import() | pages/loginform */ 11).then(__webpack_require__.bind(null, 314)));
-const _b150b19c = () => interopDefault(__webpack_require__.e(/* import() | pages/products */ 12).then(__webpack_require__.bind(null, 315)));
-const _3c91a8f4 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 9).then(__webpack_require__.bind(null, 316)));
+const _3d957a22 = () => interopDefault(__webpack_require__.e(/* import() | pages/colors */ 8).then(__webpack_require__.bind(null, 312)));
+const _2eef7c8c = () => interopDefault(__webpack_require__.e(/* import() | pages/login */ 10).then(__webpack_require__.bind(null, 313)));
+const _451beb7e = () => interopDefault(__webpack_require__.e(/* import() | pages/loginform */ 11).then(__webpack_require__.bind(null, 314)));
+const _69f81f23 = () => interopDefault(__webpack_require__.e(/* import() | pages/products */ 12).then(__webpack_require__.bind(null, 315)));
+const _1ee09ea3 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 9).then(__webpack_require__.bind(null, 316)));
 
 const emptyFn = () => {};
 external_vue_default.a.use(external_vue_router_default.a);
@@ -9068,23 +9068,23 @@ const routerOptions = {
   scrollBehavior: router_scrollBehavior,
   routes: [{
     path: "/colors",
-    component: _79a582be,
+    component: _3d957a22,
     name: "colors"
   }, {
     path: "/login",
-    component: _06394c0b,
+    component: _2eef7c8c,
     name: "login"
   }, {
     path: "/loginform",
-    component: _98a53562,
+    component: _451beb7e,
     name: "loginform"
   }, {
     path: "/products",
-    component: _b150b19c,
+    component: _69f81f23,
     name: "products"
   }, {
     path: "/",
-    component: _3c91a8f4,
+    component: _1ee09ea3,
     name: "index"
   }],
   fallback: false
@@ -9257,7 +9257,7 @@ var error_component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   "bfedb7fe",
-  "78e10d8d"
+  "526907f0"
   
 )
 
@@ -9522,7 +9522,7 @@ var nuxt_loading_component = Object(componentNormalizer["a" /* default */])(
   false,
   nuxt_loading_injectStyles,
   null,
-  "3673e936"
+  "249bb840"
   
 )
 
@@ -10629,7 +10629,7 @@ var checking_component = Object(componentNormalizer["a" /* default */])(
   false,
   checking_injectStyles,
   "114f5ec0",
-  "346c4936"
+  "0c4ed1ec"
   
 )
 
@@ -10877,7 +10877,7 @@ var dashboard_component = Object(componentNormalizer["a" /* default */])(
   false,
   dashboard_injectStyles,
   "9e9d83e6",
-  "14d5c199"
+  "fac30ad8"
   
 )
 
@@ -10915,7 +10915,7 @@ var default_component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "2ef1c606"
+  "880afc7e"
   
 )
 
@@ -11357,7 +11357,7 @@ const setupProgress = axios => {
   // runtimeConfig
   const runtimeConfig = ctx.$config && ctx.$config.axios || {};
   // baseURL
-  const baseURL =  false ? undefined : runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://sadhanagarments2013.in/backend/public/';
+  const baseURL =  false ? undefined : runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://sadhanagarments2013.in/admin-backend/public/';
 
   // Create fresh objects for all default header scopes
   // Axios creates only one which is shared across SSR requests!

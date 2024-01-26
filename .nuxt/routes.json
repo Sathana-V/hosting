@@ -2,36 +2,36 @@
   {
     "name": "colors",
     "path": "/colors",
-    "component": "D:\\\\hosting\\\\pages\\\\colors.vue",
+    "component": "C:\\\\xampp\\\\htdocs\\\\sadhana\\\\1\\\\sadhana\\\\sadhana-garments\\\\hosting\\\\pages\\\\colors.vue",
     "chunkName": "pages/colors",
-    "_name": "_79a582be"
+    "_name": "_3d957a22"
   },
   {
     "name": "login",
     "path": "/login",
-    "component": "D:\\\\hosting\\\\pages\\\\login.vue",
+    "component": "C:\\\\xampp\\\\htdocs\\\\sadhana\\\\1\\\\sadhana\\\\sadhana-garments\\\\hosting\\\\pages\\\\login.vue",
     "chunkName": "pages/login",
-    "_name": "_06394c0b"
+    "_name": "_2eef7c8c"
   },
   {
     "name": "loginform",
     "path": "/loginform",
-    "component": "D:\\\\hosting\\\\pages\\\\loginform.vue",
+    "component": "C:\\\\xampp\\\\htdocs\\\\sadhana\\\\1\\\\sadhana\\\\sadhana-garments\\\\hosting\\\\pages\\\\loginform.vue",
     "chunkName": "pages/loginform",
-    "_name": "_98a53562"
+    "_name": "_451beb7e"
   },
   {
     "name": "products",
     "path": "/products",
-    "component": "D:\\\\hosting\\\\pages\\\\products.vue",
+    "component": "C:\\\\xampp\\\\htdocs\\\\sadhana\\\\1\\\\sadhana\\\\sadhana-garments\\\\hosting\\\\pages\\\\products.vue",
     "chunkName": "pages/products",
-    "_name": "_b150b19c"
+    "_name": "_69f81f23"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "D:\\\\hosting\\\\pages\\\\index.vue",
+    "component": "C:\\\\xampp\\\\htdocs\\\\sadhana\\\\1\\\\sadhana\\\\sadhana-garments\\\\hosting\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_3c91a8f4"
+    "_name": "_1ee09ea3"
   }
 ]
