@@ -25,8 +25,5 @@
   },
   "NuxtLogo": {
     "description": "Auto imported from components/NuxtLogo.vue"
-  },
-  "PreviewScreen": {
-    "description": "Auto imported from components/PreviewScreen.vue"
   }
 }

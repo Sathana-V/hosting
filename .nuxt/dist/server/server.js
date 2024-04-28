@@ -43,7 +43,7 @@ module.exports =
 /******/
 /******/ 		// "0" is the signal for "already loaded"
 /******/ 		if(installedChunks[chunkId] !== 0) {
-/******/ 			var chunk = require("./" + ({"1":"components/add-invoice","2":"components/add-model","3":"components/add-product","4":"components/edit-color","5":"components/edit-invoice","6":"components/edit-product","7":"components/image-viewer","8":"components/login-page","9":"components/nuxt-logo","10":"components/preview-screen","11":"pages/colors","12":"pages/index","13":"pages/invoice","14":"pages/login","15":"pages/loginform","16":"pages/products"}[chunkId]||chunkId) + ".js");
+/******/ 			var chunk = require("./" + ({"1":"components/add-invoice","2":"components/add-model","3":"components/add-product","4":"components/edit-color","5":"components/edit-invoice","6":"components/edit-product","7":"components/image-viewer","8":"components/login-page","9":"components/nuxt-logo","10":"pages/colors","11":"pages/index","12":"pages/invoice","13":"pages/login","14":"pages/loginform","15":"pages/products"}[chunkId]||chunkId) + ".js");
 /******/ 			var moreModules = chunk.modules, chunkIds = chunk.ids;
 /******/ 			for(var moduleId in moreModules) {
 /******/ 				modules[moduleId] = moreModules[moduleId];
@@ -8331,7 +8331,6 @@ __webpack_require__.d(components_namespaceObject, "EditProduct", function() { re
 __webpack_require__.d(components_namespaceObject, "ImageViewer", function() { return ImageViewer; });
 __webpack_require__.d(components_namespaceObject, "LoginPage", function() { return LoginPage; });
 __webpack_require__.d(components_namespaceObject, "NuxtLogo", function() { return NuxtLogo; });
-__webpack_require__.d(components_namespaceObject, "PreviewScreen", function() { return PreviewScreen; });
 
 // EXTERNAL MODULE: external "vue"
 var external_vue_ = __webpack_require__(1);
@@ -9055,12 +9054,12 @@ function shouldScrollToTop(route) {
 
 
 
-const _79a582be = () => interopDefault(__webpack_require__.e(/* import() | pages/colors */ 11).then(__webpack_require__.bind(null, 325)));
-const _1a4aa34f = () => interopDefault(__webpack_require__.e(/* import() | pages/invoice */ 13).then(__webpack_require__.bind(null, 326)));
-const _06394c0b = () => interopDefault(__webpack_require__.e(/* import() | pages/login */ 14).then(__webpack_require__.bind(null, 327)));
-const _98a53562 = () => interopDefault(__webpack_require__.e(/* import() | pages/loginform */ 15).then(__webpack_require__.bind(null, 328)));
-const _b150b19c = () => interopDefault(__webpack_require__.e(/* import() | pages/products */ 16).then(__webpack_require__.bind(null, 329)));
-const _3c91a8f4 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 12).then(__webpack_require__.bind(null, 330)));
+const _79a582be = () => interopDefault(__webpack_require__.e(/* import() | pages/colors */ 10).then(__webpack_require__.bind(null, 320)));
+const _1a4aa34f = () => interopDefault(__webpack_require__.e(/* import() | pages/invoice */ 12).then(__webpack_require__.bind(null, 321)));
+const _06394c0b = () => interopDefault(__webpack_require__.e(/* import() | pages/login */ 13).then(__webpack_require__.bind(null, 322)));
+const _98a53562 = () => interopDefault(__webpack_require__.e(/* import() | pages/loginform */ 14).then(__webpack_require__.bind(null, 323)));
+const _b150b19c = () => interopDefault(__webpack_require__.e(/* import() | pages/products */ 15).then(__webpack_require__.bind(null, 324)));
+const _3c91a8f4 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 11).then(__webpack_require__.bind(null, 325)));
 
 const emptyFn = () => {};
 external_vue_default.a.use(external_vue_router_default.a);
@@ -11094,16 +11093,15 @@ const layouts = {
   }
 });
 // CONCATENATED MODULE: ./.nuxt/components/index.js
-const AddInvoice = () => __webpack_require__.e(/* import() | components/add-invoice */ 1).then(__webpack_require__.bind(null, 292)).then(c => wrapFunctional(c.default || c));
-const AddModel = () => __webpack_require__.e(/* import() | components/add-model */ 2).then(__webpack_require__.bind(null, 279)).then(c => wrapFunctional(c.default || c));
-const AddProduct = () => __webpack_require__.e(/* import() | components/add-product */ 3).then(__webpack_require__.bind(null, 294)).then(c => wrapFunctional(c.default || c));
-const EditColor = () => __webpack_require__.e(/* import() | components/edit-color */ 4).then(__webpack_require__.bind(null, 291)).then(c => wrapFunctional(c.default || c));
-const EditInvoice = () => __webpack_require__.e(/* import() | components/edit-invoice */ 5).then(__webpack_require__.bind(null, 293)).then(c => wrapFunctional(c.default || c));
-const EditProduct = () => __webpack_require__.e(/* import() | components/edit-product */ 6).then(__webpack_require__.bind(null, 295)).then(c => wrapFunctional(c.default || c));
+const AddInvoice = () => __webpack_require__.e(/* import() | components/add-invoice */ 1).then(__webpack_require__.bind(null, 287)).then(c => wrapFunctional(c.default || c));
+const AddModel = () => __webpack_require__.e(/* import() | components/add-model */ 2).then(__webpack_require__.bind(null, 274)).then(c => wrapFunctional(c.default || c));
+const AddProduct = () => __webpack_require__.e(/* import() | components/add-product */ 3).then(__webpack_require__.bind(null, 289)).then(c => wrapFunctional(c.default || c));
+const EditColor = () => __webpack_require__.e(/* import() | components/edit-color */ 4).then(__webpack_require__.bind(null, 286)).then(c => wrapFunctional(c.default || c));
+const EditInvoice = () => __webpack_require__.e(/* import() | components/edit-invoice */ 5).then(__webpack_require__.bind(null, 288)).then(c => wrapFunctional(c.default || c));
+const EditProduct = () => __webpack_require__.e(/* import() | components/edit-product */ 6).then(__webpack_require__.bind(null, 290)).then(c => wrapFunctional(c.default || c));
 const ImageViewer = () => __webpack_require__.e(/* import() | components/image-viewer */ 7).then(__webpack_require__.bind(null, 213)).then(c => wrapFunctional(c.default || c));
-const LoginPage = () => __webpack_require__.e(/* import() | components/login-page */ 8).then(__webpack_require__.bind(null, 331)).then(c => wrapFunctional(c.default || c));
-const NuxtLogo = () => __webpack_require__.e(/* import() | components/nuxt-logo */ 9).then(__webpack_require__.bind(null, 332)).then(c => wrapFunctional(c.default || c));
-const PreviewScreen = () => __webpack_require__.e(/* import() | components/preview-screen */ 10).then(__webpack_require__.bind(null, 240)).then(c => wrapFunctional(c.default || c));
+const LoginPage = () => __webpack_require__.e(/* import() | components/login-page */ 8).then(__webpack_require__.bind(null, 326)).then(c => wrapFunctional(c.default || c));
+const NuxtLogo = () => __webpack_require__.e(/* import() | components/nuxt-logo */ 9).then(__webpack_require__.bind(null, 327)).then(c => wrapFunctional(c.default || c));
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

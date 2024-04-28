@@ -15,4 +15,3 @@ You can directly use them in pages and other components without the need to impo
 - `<ImageViewer>` | `<image-viewer>` (components/ImageViewer.vue)
 - `<LoginPage>` | `<login-page>` (components/LoginPage.vue)
 - `<NuxtLogo>` | `<nuxt-logo>` (components/NuxtLogo.vue)
-- `<PreviewScreen>` | `<preview-screen>` (components/PreviewScreen.vue)

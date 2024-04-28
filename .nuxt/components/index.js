@@ -7,7 +7,6 @@ export const EditProduct = () => import('../..\\components\\EditProduct.vue' /* 
 export const ImageViewer = () => import('../..\\components\\ImageViewer.vue' /* webpackChunkName: "components/image-viewer" */).then(c => wrapFunctional(c.default || c))
 export const LoginPage = () => import('../..\\components\\LoginPage.vue' /* webpackChunkName: "components/login-page" */).then(c => wrapFunctional(c.default || c))
 export const NuxtLogo = () => import('../..\\components\\NuxtLogo.vue' /* webpackChunkName: "components/nuxt-logo" */).then(c => wrapFunctional(c.default || c))
-export const PreviewScreen = () => import('../..\\components\\PreviewScreen.vue' /* webpackChunkName: "components/preview-screen" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

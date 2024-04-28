@@ -181,7 +181,6 @@
 </template>
   
   <script>
-import PreviewAndPrintInvoice from "~/components/PreviewScreen.vue";
 const sorter2 = (sortBy) => (a, b) =>
   a[sortBy].toLowerCase() > b[sortBy].toLowerCase() ? 1 : -1;
 
@@ -189,7 +188,6 @@ export default {
   emits: ["closeDialog"],
   props: ["editItem"],
   name: "EditInvoice",
-  components: { PreviewAndPrintInvoice },
 
   data: (vm) => ({
     date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
