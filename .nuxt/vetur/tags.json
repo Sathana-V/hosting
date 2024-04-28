@@ -1,4 +1,7 @@
 {
+  "AddInvoice": {
+    "description": "Auto imported from components/AddInvoice.vue"
+  },
   "AddModel": {
     "description": "Auto imported from components/AddModel.vue"
   },
@@ -7,6 +10,9 @@
   },
   "EditColor": {
     "description": "Auto imported from components/EditColor.vue"
+  },
+  "EditInvoice": {
+    "description": "Auto imported from components/EditInvoice.vue"
   },
   "EditProduct": {
     "description": "Auto imported from components/EditProduct.vue"
@@ -19,5 +25,8 @@
   },
   "NuxtLogo": {
     "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "PreviewScreen": {
+    "description": "Auto imported from components/PreviewScreen.vue"
   }
 }

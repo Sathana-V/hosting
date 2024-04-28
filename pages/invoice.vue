@@ -28,7 +28,7 @@
                  <template v-slot:top>
       <v-toolbar
         flat>
-        <v-toolbar-title>Products</v-toolbar-title>
+        <v-toolbar-title>Invoices</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -47,81 +47,29 @@
           v-bind="attrs"
           v-on="on"
         >
-          Add Product
+          Add Invoice
         </v-btn>
       </template>
      
        
-               <AddProduct @clicked="closeDialog"/>
+               <AddInvoice @clicked="closeDialog"/>
       
      
     </v-dialog>
       </v-toolbar>
     </template>
                
-          <template v-slot:item.SINo="{ index }">
-            {{ index + 1 }} </template
-          > <template v-slot:item.GivenBy="{ index }">
-            Principal </template
+          <template v-slot:item.OrderId>
+            #INVOICE{{ item.order_id}} </template
           >
-          <template v-slot:item.state="{ item }">
-            <v-btn
-              elevation="2"
-              x-small
-             v-if="item.status=='Created'"
-              class="blue"
-              dark
-              @click="publishNow(item)"
-            >
-              Publish</v-btn
-            >
-             <v-btn
-              elevation="2"
-              x-small
-             v-if="item.status=='Despatched'"
-              class="danger"
-              dark
-             
-              @click="unpublishNow(item)"
-            >
-              Un Publish</v-btn
-            >
-          </template>
+         
+        
           
-          <template v-slot:item.available_colors="{ item }">
-           
-             <span
-                    v-for="(item, index) in item.colors_available"
-                     :key="index"
-                  >
-                     <v-avatar
-                        class="ma-1"
-                        :style="{ background: item[`hexvalue`] }"
-                        size="30"
-                      ></v-avatar>
-              
-            </span>
-            
-
-          </template>
-           <template v-slot:item.price="{ item }">
-            <span
-                    v-for="(item, index) in item.price"
-                     :key="index"
-                  >
-                  [ {{item["'label'"]}} - {{item["'price'"]}} ]
-              
-            </span>
-           
-           </template>
           <template v-slot:item.Action="{ item }">
          
-                    <v-icon v-if="item.status=='Created'" color="primary" @click="editItem(item)">mdi-pencil</v-icon>
+                    <v-icon color="primary" @click="editItem(item)">mdi-pencil</v-icon>
            
-                    <v-icon v-if="item.status=='Despatched'" color="green" @click="editItem(item)">mdi-eye</v-icon>
-           
-             
-              <v-icon color="red" @click="deleteConfirm(item)">mdi-delete</v-icon>
+                    <v-icon color="green"  @click="printItem(item)">mdi-printer</v-icon>
           </template>
         </v-data-table>
       </v-card>
@@ -134,7 +82,7 @@
     >
     
        
-               <EditProduct :editItem="edit" :currentIns="currentTime" @clicked="editDialogClose"/>
+               <EditInvoice :editItem="edit" @clicked="editDialogClose"/>
       
      
     </v-dialog>
@@ -225,16 +173,16 @@ mounted() {
       colorsList:[],
       success:false,
       edit:null,
+      
       headers: [
-        { text: "SI.No", value: "SINo",sortable: false},
-          { text: "Model Name", value: "model_name" ,width:100},
-        { text: "Product Name", value: "product_name" ,width:100},
-        { text: "Product Description", value: "product_description" ,width:200},
-        { text: "Available size", value: "available_size" ,width:100},
-        { text: "Available Colors", value: "available_colors" ,width:300},
-        { text: "Prices", value: "price" ,width:200},
-        { text: "Status", value: "status" ,width:70},
-        { text: "State", value: "state" ,width:70},
+       
+        { text: "OrderId", value: "order_id" ,width:100},
+        { text: "Customer Name", value: "name" ,width:200},
+        { text: "Mobile", value: "mobile" ,width:100},
+        { text: "Address", value: "address" ,width:300},
+        { text: "Prices", value: "total_price" ,width:50},
+        { text: "Created On", value: "created_date" ,width:160},
+        { text: "Edited On", value: "edited_date" ,width:160},
         { text: "Action", value: "Action", sortable: false }
       ],
       products: [],
@@ -252,6 +200,110 @@ mounted() {
         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
     }
     return null;
+},
+printItem (item ) {
+  console.log(item);
+  var content = "";
+      for (let i = 0; i < item.items.length; i++) {
+        content += `<tr>
+    <td>${i + 1}</td>
+    <td>${item.items[i].product_name}</td>
+    <td>${item.items[i].ordered_size}</td>
+     <td>${item.items[i].order_quantity}</td>
+      <td>${item.items[i].order_price}</td>
+       <td>${item.items[i].order_amount}</td>
+  </tr>`;
+      }
+
+      // Open the print window
+      const WinPrint = window.open(
+        "",
+        "",
+        "left=0,top=0,width=600,height=600,toolbar=0,scrollbars=0,status=0"
+      );
+
+      WinPrint.document.write(`<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  font-size: 12px;
+  padding: 8px;
+}
+
+p {
+padding: 0px;
+margin: 3px;
+}
+.space-bewteen {
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
+}
+.customer-details-title {
+font-weight: 700;
+}
+.total-amount {
+text-align: right;
+padding-right: 20px;
+
+}
+</style>
+</head>
+<body>
+<div class="space-bewteen">
+  <div class="customer-details">
+<p><b>Name: </b>${item.name}</p>
+<p><b>Mobile Number: </b>${item.mobile}</p>
+  <p class="customer-details-title">Billing Address:</p>
+  
+  <p>${item.address}</p>
+</div>
+<div>
+<h2 style="color: red">Sadhana Garments</h2>
+
+<p>Erode Krishna Baniyan market<br>
+Shop no: 78</p>
+</div>
+<div>
+<p>Date : ${item.created_date}</p>
+<p>Invoice No: ${item.order_id} </p>
+</div>
+</div>
+
+
+<br>
+<table>
+  <tr>
+    <th>SI.NO</th>
+    <th>Product Name</th>
+    <th>Size</th>
+    <th>Price</th>
+     <th>Piece</th>
+
+       <th>Amount</th>
+  </tr>
+  ${content}
+ 
+</table>
+<h4 class="total-amount">Total Amount : Rs. ${item.total_price}</h4>
+</body>
+</html>
+
+`);
+
+      WinPrint.document.close();
+      WinPrint.focus();
+      WinPrint.print();
+      WinPrint.close();
 },
     // functions for displaying snackbars when edited
     editDialogClose(status)
@@ -352,6 +404,7 @@ mounted() {
     editItem(item)
     {
      
+      console.log('edit', item);
       this.edit=item
       this.editDialog=true
       this.currentTime=new Date();
@@ -367,9 +420,9 @@ mounted() {
     // function to fetch records from database
     async details() {
       await this.$axios
-        .get("/Product")
+        .get("/getOrders")
         .then(res => {
-          this.products = res.data.Product_Data;
+          this.products = res.data.order_details;
           console.log(this.products)
          
          

@@ -56,7 +56,7 @@ export default {
         if(cook!=null)
                    {
                      console.log("nonempty")
-                       window.location.href = "https://sadhanagarments-admin.netlify.app/"
+                       window.location.href = "http://localhost:3000/"
                      
                      
                    }
@@ -139,7 +139,7 @@ export default {
                    console.log("cookie",this.getCookie("username"));
                    if(this.getCookie("username")!=' ')
                    {
-                     window.location.href = "https://sadhanagarments-admin.netlify.app/"
+                     window.location.href = "http://localhost:3000/"
                    }
                   // let datai = new FormData()
                   // datai.append('email', this.email)
