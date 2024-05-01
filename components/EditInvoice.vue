@@ -118,6 +118,15 @@
             >
             </v-text-field>
           </template>
+          <template v-slot:item.action="{ item, index }">
+            <v-icon
+              dark
+              @click="deleteItem(index)"
+              color="red"
+              class="mt-2 ml-4 pa-0 text-sm-h5 text-lg-h4"
+              >mdi-delete</v-icon
+            >
+          </template>
           <template v-slot:item.piece="{ item, index }">
             <v-text-field
               class="ma-2"
@@ -180,7 +189,7 @@
 <script>
 const sorter2 = (sortBy) => (a, b) =>
   a[sortBy].toLowerCase() > b[sortBy].toLowerCase() ? 1 : -1;
-  import Mixins from "@/store/mixins.vue";
+import Mixins from "@/store/mixins.vue";
 export default {
   emits: ["closeDialog"],
   props: ["editItem"],
@@ -214,6 +223,7 @@ export default {
       { text: "Piece", value: "piece", sortable: false, width: 10 },
       { text: "Price", value: "price", sortable: false, width: 10 },
       { text: "Amount", value: "amount", sortable: false, width: 20 },
+      { text: "Actions", value: "action", sortable: false, width: 20 },
     ],
     toggle: false,
     modal: false,
@@ -321,6 +331,15 @@ export default {
   },
 
   methods: {
+    deleteItem(index) {
+      let newList = [];
+      for(var i = 0 ; i< this.productItems.length; i++) {
+        if(i!=index) {
+          newList.push(this.productItems[i]);
+        } 
+      }
+      this.productItems = newList;
+    },
     choseCustomer() {
       console.log(
         this.selectedCustomer,
@@ -365,8 +384,8 @@ export default {
           text: "All Size",
           value: "All Size",
         });
-        console.log('hey note', this.editItem.items[i]);
-       
+        console.log("hey note", this.editItem.items[i]);
+
         listItems.push({
           productName: this.editItem.items[i]["product_name"],
           size: {

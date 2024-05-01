@@ -131,6 +131,18 @@
             >
             </v-text-field>
           </template>
+          <template  v-slot:item.action="{ item, index }">
+            <v-icon
+                          dark
+                          @click="
+                            deleteItem(
+                              index
+                            )
+                          "
+                          color="red"
+                          class="mt-2 ml-4 pa-0 text-sm-h5 text-lg-h4"
+                          >mdi-delete</v-icon>
+          </template>
           <template v-slot:item.price="{ item }">
             <v-text-field
               class="ma-2"
@@ -214,6 +226,7 @@ export default {
       { text: "Piece", value: "piece", sortable: false, width: 10 },
       { text: "Price", value: "price", sortable: false, width: 10 },
       { text: "Amount", value: "amount", sortable: false, width: 20 },
+      { text: "Actions", value: "action", sortable: false, width: 20 },
     ],
     toggle: false,
     orderId: -1,
@@ -479,7 +492,15 @@ export default {
       }
       this.calculateTotalAmount();
     },
-
+    deleteItem(index) {
+      let newList = [];
+      for(var i = 0 ; i< this.productItems.length; i++) {
+        if(i!=index) {
+          newList.push(this.productItems[i]);
+        } 
+      }
+      this.productItems = newList;
+    },
     addItem() {
       this.productItems.push({
         productName: "",

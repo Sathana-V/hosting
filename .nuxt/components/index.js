@@ -1,12 +1,12 @@
-export { default as AddInvoice } from '../..\\components\\AddInvoice.vue'
-export { default as AddModel } from '../..\\components\\AddModel.vue'
-export { default as AddProduct } from '../..\\components\\AddProduct.vue'
-export { default as EditColor } from '../..\\components\\EditColor.vue'
-export { default as EditInvoice } from '../..\\components\\EditInvoice.vue'
-export { default as EditProduct } from '../..\\components\\EditProduct.vue'
-export { default as ImageViewer } from '../..\\components\\ImageViewer.vue'
-export { default as LoginPage } from '../..\\components\\LoginPage.vue'
-export { default as NuxtLogo } from '../..\\components\\NuxtLogo.vue'
+export const AddInvoice = () => import('../..\\components\\AddInvoice.vue' /* webpackChunkName: "components/add-invoice" */).then(c => wrapFunctional(c.default || c))
+export const AddModel = () => import('../..\\components\\AddModel.vue' /* webpackChunkName: "components/add-model" */).then(c => wrapFunctional(c.default || c))
+export const AddProduct = () => import('../..\\components\\AddProduct.vue' /* webpackChunkName: "components/add-product" */).then(c => wrapFunctional(c.default || c))
+export const EditColor = () => import('../..\\components\\EditColor.vue' /* webpackChunkName: "components/edit-color" */).then(c => wrapFunctional(c.default || c))
+export const EditInvoice = () => import('../..\\components\\EditInvoice.vue' /* webpackChunkName: "components/edit-invoice" */).then(c => wrapFunctional(c.default || c))
+export const EditProduct = () => import('../..\\components\\EditProduct.vue' /* webpackChunkName: "components/edit-product" */).then(c => wrapFunctional(c.default || c))
+export const ImageViewer = () => import('../..\\components\\ImageViewer.vue' /* webpackChunkName: "components/image-viewer" */).then(c => wrapFunctional(c.default || c))
+export const LoginPage = () => import('../..\\components\\LoginPage.vue' /* webpackChunkName: "components/login-page" */).then(c => wrapFunctional(c.default || c))
+export const NuxtLogo = () => import('../..\\components\\NuxtLogo.vue' /* webpackChunkName: "components/nuxt-logo" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {
