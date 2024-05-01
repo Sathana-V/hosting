@@ -140,7 +140,7 @@
                             )
                           "
                           color="red"
-                          class="mt-2 ml-4 pa-0 text-sm-h5 text-lg-h4"
+                         
                           >mdi-delete</v-icon>
           </template>
           <template v-slot:item.price="{ item }">
@@ -500,6 +500,7 @@ export default {
         } 
       }
       this.productItems = newList;
+      this.calculateTotalAmount();
     },
     addItem() {
       this.productItems.push({

@@ -123,7 +123,7 @@
               dark
               @click="deleteItem(index)"
               color="red"
-              class="mt-2 ml-4 pa-0 text-sm-h5 text-lg-h4"
+             
               >mdi-delete</v-icon
             >
           </template>
@@ -339,6 +339,7 @@ export default {
         } 
       }
       this.productItems = newList;
+      this.calculateTotalAmount();
     },
     choseCustomer() {
       console.log(
