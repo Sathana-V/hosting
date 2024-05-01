@@ -11,13 +11,19 @@
         <v-row>
           <v-col cols="12" lg="4" sm="12" md="4">
             <h4>Customer Name</h4>
-            <v-text-field
-              outlined
+            <v-combobox
+              clearable
+              v-model="selectedCustomer"
+              @input="choseCustomer"
+              :rules="customerRules"
+              item-text="name"
+              item-value="id"
               class="mt-2 pa-0"
               ref="customer_name"
-              :rules="customerRules"
-              v-model="customer_name"
-            ></v-text-field>
+              outlined
+              return-object
+              :items="availableCustomers"
+            ></v-combobox>
           </v-col>
           <v-col cols="12" lg="4" sm="12" md="4">
             <h4>Mobile Number</h4>
@@ -166,29 +172,20 @@
           dark
           >Save</v-btn
         >
-        <v-btn
-          dense
-          color="background ml-6  pl-6 pr-6"
-          elevation="4"
-          @click="printScreen"
-          large
-          dark
-          >Print</v-btn
-        >
       </div>
     </v-card-actions>
   </v-card>
 </template>
-  
-  <script>
+
+<script>
 const sorter2 = (sortBy) => (a, b) =>
   a[sortBy].toLowerCase() > b[sortBy].toLowerCase() ? 1 : -1;
-
+  import Mixins from "@/store/mixins.vue";
 export default {
   emits: ["closeDialog"],
   props: ["editItem"],
   name: "EditInvoice",
-
+  mixins: [Mixins],
   data: (vm) => ({
     date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
       .toISOString()
@@ -198,6 +195,8 @@ export default {
         .toISOString()
         .substr(0, 10)
     ),
+    availableCustomers: [],
+    selectedCustomer: null,
     showPreviewAndPrint: false,
     icon: "mdi-checkbox-blank-outline",
     menu1: false,
@@ -248,7 +247,6 @@ export default {
   mounted() {
     this.Details();
     this.valid = false;
-    
   },
 
   created: function () {
@@ -304,9 +302,9 @@ export default {
 
   watch: {
     editItem(old, newn) {
-      this.setDetails();
+      this.Details();
     },
-   
+
     date(val) {
       this.dateFormatted = this.formatDate(this.date);
     },
@@ -322,9 +320,36 @@ export default {
     },
   },
 
- 
   methods: {
+    choseCustomer() {
+      console.log(
+        this.selectedCustomer,
+        this.selectedCustomer != null &&
+          typeof this.selectedCustomer == "object"
+      );
+      if (
+        this.selectedCustomer != null &&
+        typeof this.selectedCustomer == "object"
+      ) {
+        this.customer_name = this.selectedCustomer.name;
+        this.customer_address = this.selectedCustomer.address;
+        this.customer_no = this.selectedCustomer.mobile;
+      } else if (this.selectedCustomer != null) {
+        this.customer_name = this.selectedCustomer;
+        this.customer_address = "";
+        this.customer_no = "";
+      } else {
+        this.customer_address = "";
+        this.customer_no = "";
+      }
+    },
     setDetails() {
+      this.selectedCustomer = {
+        id: this.editItem.id,
+        name: this.editItem.name,
+        mobile: this.editItem.mobile,
+        address: this.editItem.address,
+      };
       this.customer_name = this.editItem.name;
       this.customer_no = this.editItem.mobile;
       this.customer_address = this.editItem.address;
@@ -332,25 +357,31 @@ export default {
       var listItems = [];
       this.totalPrice = this.editItem.total_price;
       for (var i = 0; i < this.editItem.items.length; i++) {
+        let availSize = this.editItem.items[i].available_size.map((size) => ({
+          text: size,
+          value: size,
+        }));
+        availSize.push({
+          text: "All Size",
+          value: "All Size",
+        });
+        console.log('hey note', this.editItem.items[i]);
+       
         listItems.push({
-          productName:this.editItem.items[i]['product_name'],
-          size:{
-            text: this.editItem.items[i]['ordered_size'],
-            value: this.editItem.items[i]['ordered_size'],
+          productName: this.editItem.items[i]["product_name"],
+          size: {
+            text: this.editItem.items[i]["ordered_size"],
+            value: this.editItem.items[i]["ordered_size"],
           },
-          productDetail:this.editItem.items[i],
-          availableSizes: 
-          this.editItem.items[i].available_size.map((size) => ({
-            text: size,
-            value: size,
-          })),
-          piece:this.editItem.items[i]['order_quantity'],
-          price: this.editItem.items[i]['order_price'],
-          amount:this.editItem.items[i]['order_amount'],
+          productDetail: this.editItem.items[i],
+          availableSizes: availSize,
+          piece: this.editItem.items[i]["order_quantity"],
+          price: this.editItem.items[i]["order_price"],
+          amount: this.editItem.items[i]["order_amount"],
         });
       }
       console.log(listItems);
-     this.productItems = listItems;
+      this.productItems = listItems;
 
       this.valid = true;
 
@@ -378,25 +409,70 @@ export default {
       this.calculateTotalAmount();
     },
     choseSize(item, index) {
+      var priceItem;
+      var validPrices = [];
       console.log(item);
       if (item.size != null) {
         if (item.productDetail != {}) {
           console.log(item.size.value);
           console.log(item.productDetail.sizetype);
           if (item.productDetail.sizetype == "cm") {
-            console.log("inside");
-            this.productItems[index]["price"] = item.productDetail.price.find(
-              (value) => {
-                return value["'label'"] == item.size.value;
-              }
-            )["'pricePerPiece'"];
+            validPrices = ["80", "70", "75", "90"];
           } else {
-            this.productItems[index]["price"] = item.productDetail.price.find(
-              (value) => {
-                return value["'label'"] == item.size.value;
-              }
-            )["'price'"];
+            validPrices = ["S", "L", "M"];
           }
+          if (item.size.value == "All Size") {
+            var priceToAdd = "0";
+            var currentPrice = {
+              "'price'": 0,
+            };
+            if (item.productDetail.price.length == 1) {
+              currentPrice = item.productDetail.price[0];
+            } else {
+              for (
+                var priceIndex = 0;
+                priceIndex < item.productDetail.price.length;
+                priceIndex++
+              ) {
+                if (
+                  validPrices.includes(
+                    item.productDetail.price[priceIndex]["'label'"]
+                  )
+                ) {
+                  currentPrice = item.productDetail.price[priceIndex];
+
+                  break;
+                }
+              }
+            }
+
+            if (
+              currentPrice["'pricePerPiece'"] != "0" &&
+              currentPrice["'pricePerPiece'"] != null &&
+              currentPrice["'pricePerPiece'"] != undefined
+            ) {
+              priceToAdd = currentPrice["'pricePerPiece'"];
+            } else {
+              priceToAdd = currentPrice["'price'"];
+            }
+            this.productItems[index]["price"] = priceToAdd;
+          } else {
+            console.log("inside");
+            priceItem = this.productItems[index]["price"] =
+              item.productDetail.price.find((value) => {
+                return value["'label'"] == item.size.value;
+              });
+            if (
+              priceItem["'pricePerPiece'"] != "0" &&
+              priceItem["'pricePerPiece'"] != null &&
+              priceItem["'pricePerPiece'"] != undefined
+            ) {
+              this.productItems[index]["price"] = priceItem["'pricePerPiece'"];
+            } else {
+              this.productItems[index]["price"] = priceItem["'price'"];
+            }
+          }
+
           this.productItems[index].piece = 1;
           this.productItems[index].amount =
             parseInt(item.piece) * parseInt(item.price);
@@ -408,7 +484,7 @@ export default {
     calculateTotalAmount() {
       var total = 0;
       for (let i = 0; i < this.productItems.length; i++) {
-        total +=parseInt( this.productItems[i].amount);
+        total += parseInt(this.productItems[i].amount);
       }
       this.totalPrice = total;
     },
@@ -424,92 +500,17 @@ export default {
          <td>${this.productItems[i].amount}</td>
     </tr>`;
       }
-
-      // Open the print window
-      const WinPrint = window.open(
-        "",
-        "",
-        "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
+      this.printContentsIntoPrinter(
+        content,
+        this.customer_name,
+        this.customer_no,
+        this.customer_address,
+        this.editItem.created_date,
+        this.editItem.order_id,
+        this.totalPrice
       );
-
-      WinPrint.document.write(`<!DOCTYPE html>
-  <html>
-  <head>
-  <style>
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    font-size: 12px;
-    padding: 8px;
-  }
-  
-  p {
-  padding: 0px;
-  margin: 3px;
-  }
-  .space-bewteen {
-     display: flex;
-     justify-content: space-between;
-  }
-  .customer-details-title {
-  font-weight: 700;
-  }
-  .total-amount {
-  text-align: right;
-  padding-right: 20px;
-  
-  }
-  </style>
-  </head>
-  <body>
-  <div class="space-bewteen">
-  <h2 style="color: red">Sadhana Garments</h2>
-  <div>
-  <p>Date : ${this.dateFormatted}</p>
-  <p>Invoice No: #INVOICE1 </p>
-  </div>
-  </div>
-  
-  <div class="customer-details">
-  <p><b>Name: </b>${this.customer_name}</p>
-  <p><b>Mobile Number: </b>${this.customer_no}</p>
-    <p class="customer-details-title">Billing Address:</p>
-    
-    <p>${this.customer_address}</p>
-  </div>
-  <br>
-  <table>
-    <tr>
-      <th>SI.NO</th>
-      <th>Product Name</th>
-      <th>Size</th>
-      <th>Price</th>
-       <th>Piece</th>
-  
-         <th>Amount</th>
-    </tr>
-    ${content}
-   
-  </table>
-  <h4 class="total-amount">Total Amount : Rs. ${this.totalPrice}</h4>
-  <p>Erode Krishna Baniyan market<br>
-  Shop no: 78
-  </body>
-  </html>
-  
-  `);
-
-      WinPrint.document.close();
-      WinPrint.focus();
-      WinPrint.print();
-      WinPrint.close();
     },
+
     editInput(item, index) {
       if (item.productDetail != {} && item.productDetail != null) {
         console.log(item.productDetail);
@@ -519,6 +520,10 @@ export default {
             text: size,
             value: size,
           }));
+        this.productItems[index]["availableSizes"].push({
+          text: "All Size",
+          value: "All Size",
+        });
         this.productItems[index].size = {
           label: 0,
           value: 0,
@@ -552,6 +557,7 @@ export default {
     //function for fetching model details
     async Details() {
       this.productList = [];
+      this.availableCustomers = [];
       const response2 = await this.$axios
         .get(`/Product`)
         .then((res) => {
@@ -561,6 +567,18 @@ export default {
             this.productList.push(res.data.Product_Data[i]);
           }
           this.setDetails();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      await this.$axios
+        .get(`/Customers`)
+        .then((res) => {
+          var i = 0;
+          console.log(res.data);
+          for (i; i < res.data.Customer_Details.length; i++) {
+            this.availableCustomers.push(res.data.Customer_Details[i]);
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -588,7 +606,7 @@ export default {
       this.tableShow = false;
 
       this.productItems = [];
-
+      this.selectedCustomer = null;
       this.valid = true;
 
       this.dialog = false;
@@ -627,9 +645,9 @@ export default {
           console.log(pair[0] + ", " + pair[1]);
         }
         let data2 = {
-            order_id: this.editItem.order_id,
-            customer_id: this.editItem.customer_id,
-            created_date: this.editItem.created_date,
+          order_id: this.editItem.order_id,
+          customer_id: this.editItem.customer_id,
+          created_date: this.editItem.created_date,
           total_price: this.totalPrice,
           customer_name: this.customer_name,
           customer_address: this.customer_address,
@@ -644,9 +662,11 @@ export default {
             console.log(res);
             if (res.data.error) {
               console.log(res.data.messages);
+
               this.closeDialog("failed");
             } else {
               console.log(res.data.messages);
+              this.printScreen();
               this.closeDialog("success");
             }
           })
@@ -659,8 +679,8 @@ export default {
   },
 };
 </script>
-  
-  <style scoped>
+
+<style scoped>
 @media print {
   img {
     display: block; /* Ensure the image is displayed */
@@ -700,4 +720,3 @@ tr {
   border-color: #17a2b8 !important;
 }
 </style>
-  

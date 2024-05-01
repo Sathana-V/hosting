@@ -109,7 +109,7 @@
                     v-for="(item, index) in item.price"
                      :key="index"
                   >
-                  [ {{item["'label'"]}} - {{item["'price'"]}} ]
+                  [ {{item["'label'"]}} - {{ (item["'price'"] != '0' &&  item["'price'"] != '') ? item["'price'"] : item["'pricePerPiece'"]}} ]
               
             </span>
            
