@@ -4,7 +4,22 @@
 <script>
 export default {
   methods: {
-    printContentsIntoPrinter(content,  name, mobile, address, createdDate, orderId, totalPrice) {
+    getCurrentDateTime() {
+      const now = new Date();
+      const date = now.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // Handle midnight (0 hours)
+      const formattedTime = hours + ':' + (minutes < 10 ? '0' + minutes : minutes) + ' ' + ampm;
+     return date + ' ' + formattedTime;
+    },
+    printContentsIntoPrinter(content,  name, mobile, address, d, orderId, totalPrice) {
      
       // Open the print window
       const WinPrint = window.open(
@@ -109,7 +124,7 @@ padding-right: 20px;
     <h2 style="color: red">Sadhana Garments</h2>
     
     <p>Erode Krishna Baniyan market<br>
-    Shop no: 78</p>
+    Shop no: 78<br>Contact: +91 9994284722</p>
     </div>
   <div class="customer-details">
 
@@ -142,7 +157,7 @@ padding-right: 20px;
 <div class="last-row">
   
 <div>
-  <p><b>Date :</b> ${createdDate}</p>
+  <p><b>Date :</b> ${this.getCurrentDateTime()}</p>
 <p><b>Invoice No:</b> INVOICE0${orderId}</p>
   </div>
 <h4 >Total Amount : Rs. ${totalPrice}</h4>
