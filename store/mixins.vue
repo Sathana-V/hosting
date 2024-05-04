@@ -34,11 +34,18 @@ export default {
   <title></title>
 <style>
 @media print {
- @page {
-    size: A4 landscape; /* Set page size to landscape */
-    margin: 0; /* Remove default margins */
+  @page {
+    size: A5 landscape;
+    margin: 0;
   }
-
+  body {
+    margin: 20px;
+    padding: 0;
+    // width: 105mm; /* Half of A5 width */
+    // height: 148mm; /* A5 height */
+    transform: scale(0.5); /* Scale down to half */
+    transform-origin: top right; /* Keep content aligned to top left */
+  }
   /* Hide page numbers and time */
   @page :first {
     /* Hide page numbers and time only on the first page */
@@ -70,9 +77,9 @@ p , h2{
 padding: 0px;
 margin: 3px;
 }
-body {
-  width: 50%;
-}
+// body {
+//   width: 50%;
+// }
 .space-bewteen {
    display: flex;
    align-items: flex-start;
