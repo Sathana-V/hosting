@@ -72,6 +72,7 @@
           loading-text="Loading... Please wait"
           :headers="itemHeaders"
           :items="productItems"
+          :items-per-page="productItems.length"
         >
           <template v-slot:item.No="{ index }">
             <h4>{{ index + 1 }}</h4>

@@ -4,7 +4,7 @@
 <script>
 export default {
   methods: {
-    getCurrentDateTime() {
+      getCurrentDateTime () {
       const now = new Date();
       const date = now.toLocaleDateString('en-GB', {
         day: '2-digit',
@@ -19,7 +19,7 @@ export default {
       const formattedTime = hours + ':' + (minutes < 10 ? '0' + minutes : minutes) + ' ' + ampm;
      return date + ' ' + formattedTime;
     },
-    printContentsIntoPrinter(content,  name, mobile, address, d, orderId, totalPrice) {
+    async printContentsIntoPrinter(content,  name, mobile, address, d, orderId, totalPrice) {
      
       // Open the print window
       const WinPrint = window.open(
@@ -35,16 +35,21 @@ export default {
 <style>
 @media print {
   @page {
-    size: A5 landscape;
+    size: A4 portrait;
     margin: 0;
   }
   body {
-    margin: 20px;
-    padding: 0;
-    // width: 105mm; /* Half of A5 width */
-    // height: 148mm; /* A5 height */
-    transform: scale(0.5); /* Scale down to half */
+    border: 1px solid black;
+    margin: 10px 10px;
+    margin-top: 20px;
+    padding: 10px;
+    width: 64%; /* Half of A5 width */
+    height: 69vh; /* A5 height */
+    transform: scale(1); /* Scale down to half */
     transform-origin: top right; /* Keep content aligned to top left */
+  }
+  hr {
+    border: 1px solid black;
   }
   /* Hide page numbers and time */
   @page :first {
@@ -67,7 +72,7 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid black;
   text-align: left;
   font-size: 12px;
   padding: 8px;
@@ -77,15 +82,18 @@ p , h2{
 padding: 0px;
 margin: 3px;
 }
-// body {
-//   width: 50%;
-// }
+
 .space-bewteen {
    display: flex;
    align-items: flex-start;
    justify-content: space-between;
 }
+.customer-details {
+  background-color: red;
+  width: 38%;
+}
 .customer-details-title {
+ 
 font-weight: 700;
 }
 .total-amount {
@@ -105,15 +113,22 @@ padding-right: 20px;
   padding-left: 20px;
   text-align: left;
 }
+img {
+  width: 200px;
+  height: 80px;
+}
 .last-row {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   margin-top: 20px;
+  margin-bottom: 10px;
   width: 99%;
-  display: flex;
-  justify-content: space-between;
 }
 .last-row h4, .last-row  p {
   padding: 0px;
   margin: 0px;
+  float: right;
 }
 .address {
   white-space: pre-line;
@@ -122,15 +137,19 @@ padding-right: 20px;
 </style>
 </head>
 <body>
-  <div class="heading-title">
- 
-  <p>INVOICE </p>
+  <div class="space-bewteen">
+    <img src="https://sadhanagarments2013.in/assets/img/2.jpg" alt="image here"></img>
+    <div>
+  <p><b>Date :</b> ${this.getCurrentDateTime()}</p>
+<p><b>Invoice No:</b> ${orderId}</p>
+  </div>
   </div> 
 <div class="space-bewteen">
   <div class="heading-title">
-    <h2 style="color: red">Sadhana Garments</h2>
+   
     
-    <p>Erode Krishna Baniyan market<br>
+    <h2 style="color: red">Sadhana Garments</h2>
+    <p>Erode Krishna Baniyan markets<br>
     Shop no: 78<br>Contact: +91 9994284722</p>
     </div>
   <div class="customer-details">
@@ -146,7 +165,7 @@ padding-right: 20px;
 
 </div>
 
-
+<hr>
 <br>
 <table>
   <tr>
@@ -161,12 +180,10 @@ padding-right: 20px;
   ${content}
  
 </table>
+
 <div class="last-row">
-  
-<div>
-  <p><b>Date :</b> ${this.getCurrentDateTime()}</p>
-<p><b>Invoice No:</b> INVOICE0${orderId}</p>
-  </div>
+<hr>
+
 <h4 >Total Amount : Rs. ${totalPrice}</h4>
   </div>
 
@@ -177,6 +194,7 @@ padding-right: 20px;
 
       WinPrint.document.close();
       WinPrint.focus();
+      await new Promise(r => setTimeout(r, 2000));
       WinPrint.print();
       WinPrint.close();
     },

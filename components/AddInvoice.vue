@@ -71,6 +71,7 @@
           :hide-default-footer="true"
           loading-text="Loading... Please wait"
           :headers="itemHeaders"
+          :items-per-page="productItems.length"
           :items="productItems"
         >
           <template v-slot:item.No="{ index }">
