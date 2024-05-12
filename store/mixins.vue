@@ -213,7 +213,6 @@ ${mobile !== '0' ? `<p><b></b>${mobile}</p>` : ''}
   </div>
 </div>
 <hr>
-<br>
 <table>
   <tr>
     <th>SI.<br>NO</th>
@@ -233,7 +232,8 @@ ${mobile !== '0' ? `<p><b></b>${mobile}</p>` : ''}
 <br>
 <hr>
 <div class="image-container-new">
-  <h3>Scan QR to visit our website</h3>
+  <p>THANKS FOR COMING...</p>
+  <p>SCAN QR TO VISIT OUR WEBSITE</p>
   <img class="qrImage" src="${this.qrImageUrl}" />
   <p>https://sadhanagarments2013.in</p>
   
