@@ -253,7 +253,7 @@ export default {
       await this.$axios
         .get("/getOrders")
         .then((res) => {
-          this.products = res.data.order_details;
+          this.products = res.data.order_details.reverse();
           console.log(this.products);
         })
         .catch((err) => {

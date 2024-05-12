@@ -53,11 +53,11 @@
           <v-col class="" cols="12" lg="6" sm="6" md="6">
             <h4 class="ml-3">Products</h4>
           </v-col>
-          <v-col cols="12" lg="6" sm="6" md="6" style="text-align: right">
+          <v-col v-if="productItems.length == 0" cols="12" lg="6" sm="6" md="6" style="text-align: right">
             <v-btn
               dense
               @click="addItem"
-              color="background ml-6  pl-6 pr-6"
+              color="green"
               elevation="4"
               class="mr-3"
               large
@@ -126,6 +126,17 @@
               color="red"
              
               >mdi-delete</v-icon
+            >
+            <v-btn
+              dense
+              v-if="(productItems.length - 1) == index"
+              @click="addItem"
+              color="green"
+              elevation="4"
+              class="pl-4"
+              large
+              dark
+              >Add</v-btn
             >
           </template>
           <template v-slot:item.piece="{ item, index }">

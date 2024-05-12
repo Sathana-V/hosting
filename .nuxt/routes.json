@@ -3,36 +3,42 @@
     "name": "colors",
     "path": "/colors",
     "component": "D:\\\\hosting\\\\pages\\\\colors.vue",
-    "chunkName": "pages/colors"
+    "chunkName": "pages/colors",
+    "_name": "_79a582be"
   },
   {
     "name": "invoice",
     "path": "/invoice",
     "component": "D:\\\\hosting\\\\pages\\\\invoice.vue",
-    "chunkName": "pages/invoice"
+    "chunkName": "pages/invoice",
+    "_name": "_1a4aa34f"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "D:\\\\hosting\\\\pages\\\\login.vue",
-    "chunkName": "pages/login"
+    "chunkName": "pages/login",
+    "_name": "_06394c0b"
   },
   {
     "name": "loginform",
     "path": "/loginform",
     "component": "D:\\\\hosting\\\\pages\\\\loginform.vue",
-    "chunkName": "pages/loginform"
+    "chunkName": "pages/loginform",
+    "_name": "_98a53562"
   },
   {
     "name": "products",
     "path": "/products",
     "component": "D:\\\\hosting\\\\pages\\\\products.vue",
-    "chunkName": "pages/products"
+    "chunkName": "pages/products",
+    "_name": "_b150b19c"
   },
   {
     "name": "index",
     "path": "/",
     "component": "D:\\\\hosting\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_3c91a8f4"
   }
 ]

@@ -53,11 +53,11 @@
           <v-col class="" cols="12" lg="6" sm="6" md="6">
             <h4 class="ml-3">Products</h4>
           </v-col>
-          <v-col cols="12" lg="6" sm="6" md="6" style="text-align: right">
+          <v-col v-if="productItems.length == 0" cols="12" lg="6" sm="6" md="6" style="text-align: right">
             <v-btn
               dense
               @click="addItem"
-              color="background ml-6  pl-6 pr-6"
+              color="green"
               elevation="4"
               class="mr-3"
               large
@@ -132,17 +132,21 @@
             >
             </v-text-field>
           </template>
-          <template  v-slot:item.action="{ item, index }">
-            <v-icon
-                          dark
-                          @click="
-                            deleteItem(
-                              index
-                            )
-                          "
-                          color="red"
-                         
-                          >mdi-delete</v-icon>
+          <template v-slot:item.action="{ item, index }">
+            <v-icon dark @click="deleteItem(index)" color="red"
+              >mdi-delete</v-icon
+            >
+            <v-btn
+              dense
+              v-if="(productItems.length - 1) == index"
+              @click="addItem"
+              color="green"
+              elevation="4"
+              class="pl-4"
+              large
+              dark
+              >Add</v-btn
+            >
           </template>
           <template v-slot:item.price="{ item }">
             <v-text-field
@@ -223,11 +227,11 @@ export default {
         sortable: false,
         width: 35,
       },
-      { text: "Size", value: "size", sortable: false, width: 10 },
+      { text: "Size", value: "size", sortable: false, width: 20 },
       { text: "Piece", value: "piece", sortable: false, width: 10 },
       { text: "Price", value: "price", sortable: false, width: 10 },
       { text: "Amount", value: "amount", sortable: false, width: 20 },
-      { text: "Actions", value: "action", sortable: false, width: 20 },
+      { text: "Actions", value: "action", sortable: false, width: 10 },
     ],
     toggle: false,
     orderId: -1,
@@ -320,7 +324,6 @@ export default {
       this.dateFormatted = this.formatDate(this.date);
     },
     //Filtering models based on Category
-   
   },
 
   methods: {
@@ -495,10 +498,10 @@ export default {
     },
     deleteItem(index) {
       let newList = [];
-      for(var i = 0 ; i< this.productItems.length; i++) {
-        if(i!=index) {
+      for (var i = 0; i < this.productItems.length; i++) {
+        if (i != index) {
           newList.push(this.productItems[i]);
-        } 
+        }
       }
       this.productItems = newList;
       this.calculateTotalAmount();

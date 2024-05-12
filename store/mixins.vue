@@ -156,7 +156,7 @@ img {
 
     <p class="customer-details-title">Deliver To:</p>
 <p><b></b>${name}</p>
-<p><b></b>${mobile}</p>
+${mobile !== '0' ? `<p><b></b>${mobile}</p>` : ''}
   
   
   <p class="address">${address}</p>
