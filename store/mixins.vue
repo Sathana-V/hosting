@@ -2,7 +2,13 @@
 <template></template>
 
 <script>
+import qrImage from '@/assets/qr.png';
 export default {
+  data() {
+    return {
+      qrImageUrl: qrImage // Assign the imported image to a variable
+    };
+  },
   methods: {
       getCurrentDateTime () {
       const now = new Date();
@@ -20,7 +26,7 @@ export default {
      return date + ' ' + formattedTime;
     },
     async printContentsIntoPrinter(content,  name, mobile, address, d, orderId, totalPrice) {
-     
+      var dateTime = this.getCurrentDateTime().split(' ');
       // Open the print window
       const WinPrint = window.open(
         "",
@@ -35,18 +41,15 @@ export default {
 <style>
 @media print {
   @page {
-    size: A4 portrait;
+    size: auto;
     margin: 0;
   }
   body {
+    margin: 0;
+    padding: 0;
+    width: 99%;
+    background-color: red;
     border: 1px solid black;
-    margin: 10px 10px;
-    margin-top: 20px;
-    padding: 10px;
-    width: 64%; /* Half of A5 width */
-    height: 69vh; /* A5 height */
-    transform: scale(1); /* Scale down to half */
-    transform-origin: top right; /* Keep content aligned to top left */
   }
   hr {
     border: 1px solid black;
@@ -74,27 +77,32 @@ table {
 td, th {
   border: 1px solid black;
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 800;
   padding: 8px;
 }
 
 p , h2{
 padding: 0px;
 margin: 3px;
+font-size: 18px;
+  font-weight: 900;
 }
 
 .space-bewteen {
    display: flex;
-   align-items: flex-start;
-   justify-content: space-between;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
 }
 .customer-details {
   background-color: red;
   width: 38%;
 }
 .customer-details-title {
+  font-size: 26px;
  
-font-weight: 700;
+font-weight: 900;
 }
 .total-amount {
 text-align: right;
@@ -103,8 +111,10 @@ padding-right: 20px;
 }
 .heading-title {
   display: flex;
+  font-size: 14px;
+  font-weight: 800;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 .border {
   border: 1px solid black;
@@ -114,62 +124,99 @@ padding-right: 20px;
   text-align: left;
 }
 img {
-  width: 200px;
+  width: 150px;
   height: 80px;
 }
+
 .last-row {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  width: 99%;
-}
-.last-row h4, .last-row  p {
-  padding: 0px;
-  margin: 0px;
   float: right;
+  padding-bottom: 50px;
+}
+.customer-div {
+  display: flex;
+  justify-content: space-between;
+}
+.last-row {
+  padding: 0px;
+  width: 100%;
+  margin: 0px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  float: right;
+  padding-right: 30px;
+  text-align: right;
 }
 .address {
   white-space: pre-line;
+}
+h4 {
+  padding: 0;
+  margin: 0;
+  margin-left: 2px;
+  float: left;
+   font-size: 18px;
+   font-weight: 800;
+}
+.image-container-new{
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.qrImage {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: 36%;
+}
+img {
+  width: 100px;
+  height: 100px;
 }
 }
 </style>
 </head>
 <body>
   <div class="space-bewteen">
-    <img src="https://sadhanagarments2013.in/assets/img/2.jpg" alt="image here"></img>
-    <div>
-  <p><b>Date :</b> ${this.getCurrentDateTime()}</p>
-<p><b>Invoice No:</b> ${orderId}</p>
-  </div>
+    <h4 class="customer-details-title">Sadhana Garments</h4>
+   
   </div> 
-<div class="space-bewteen">
-  <div class="heading-title">
+
+  <div class="heading-title space-bewteen">
    
     
-    <h2 style="color: red">Sadhana Garments</h2>
-    <p>Erode Krishna Baniyan markets<br>
-    Shop no: 78<br>Contact: +91 9994284722</p>
-    </div>
-  <div class="customer-details">
+    
+   <p>Erode Krishna Baniyan markets<br>
+   Shop no: 78<br>Contact: +91 9994284722</p>
+   </div>
+  
+  
+<hr>
 
-    <p class="customer-details-title">Deliver To:</p>
+<div class="customer-div">
+<div class="customer-details">
+
+<p >Deliver To:</p>
 <p><b></b>${name}</p>
 ${mobile !== '0' ? `<p><b></b>${mobile}</p>` : ''}
-  
-  
-  <p class="address">${address}</p>
+
+
+<p class="address">${address}</p>
 </div>
+<div>
+  <p><b>Invoice No:</b> ${orderId}</p>
+<p><b>Date :</b> ${dateTime[0]}</p>
+<p style="padding-left: 50px;"><b> ${dateTime[1]}  ${dateTime[2]}</b></p>
 
-
+  </div>
 </div>
-
 <hr>
 <br>
 <table>
   <tr>
-    <th>SI.NO</th>
+    <th>SI.<br>NO</th>
     <th>Product Name</th>
     <th>Size</th>
     <th>Price</th>
@@ -178,13 +225,18 @@ ${mobile !== '0' ? `<p><b></b>${mobile}</p>` : ''}
        <th>Amount</th>
   </tr>
   ${content}
- 
 </table>
 
-<div class="last-row">
-<hr>
+ 
 
-<h4 >Total Amount : Rs. ${totalPrice}</h4>
+<h4 class="last-row">Total Amount : Rs. ${totalPrice}</h4>
+<br>
+<hr>
+<div class="image-container-new">
+  <h3>Scan QR to visit our website</h3>
+  <img class="qrImage" src="${this.qrImageUrl}" />
+  <p>https://sadhanagarments2013.in</p>
+  
   </div>
 
 </body>
