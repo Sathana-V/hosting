@@ -218,8 +218,8 @@ ${mobile !== '0' ? `<p><b></b>${mobile}</p>` : ''}
     <th>SI.<br>NO</th>
     <th>Product Name</th>
     <th>Size</th>
-    <th>Price</th>
-     <th>Piece</th>
+    <th>Piece</th>
+     <th>Price</th>
 
        <th>Amount</th>
   </tr>

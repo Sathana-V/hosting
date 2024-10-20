@@ -4,12 +4,12 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _79a582be = () => interopDefault(import('..\\pages\\colors.vue' /* webpackChunkName: "pages/colors" */))
-const _1a4aa34f = () => interopDefault(import('..\\pages\\invoice.vue' /* webpackChunkName: "pages/invoice" */))
-const _06394c0b = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
-const _98a53562 = () => interopDefault(import('..\\pages\\loginform.vue' /* webpackChunkName: "pages/loginform" */))
-const _b150b19c = () => interopDefault(import('..\\pages\\products.vue' /* webpackChunkName: "pages/products" */))
-const _3c91a8f4 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _107aee50 = () => interopDefault(import('..\\pages\\colors.vue' /* webpackChunkName: "pages/colors" */))
+const _5fce6075 = () => interopDefault(import('..\\pages\\invoice.vue' /* webpackChunkName: "pages/invoice" */))
+const _9093ca9e = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
+const _b1931e16 = () => interopDefault(import('..\\pages\\loginform.vue' /* webpackChunkName: "pages/loginform" */))
+const _124b8ecc = () => interopDefault(import('..\\pages\\products.vue' /* webpackChunkName: "pages/products" */))
+const _23e310cc = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -24,27 +24,27 @@ export const routerOptions = {
 
   routes: [{
     path: "/colors",
-    component: _79a582be,
+    component: _107aee50,
     name: "colors"
   }, {
     path: "/invoice",
-    component: _1a4aa34f,
+    component: _5fce6075,
     name: "invoice"
   }, {
     path: "/login",
-    component: _06394c0b,
+    component: _9093ca9e,
     name: "login"
   }, {
     path: "/loginform",
-    component: _98a53562,
+    component: _b1931e16,
     name: "loginform"
   }, {
     path: "/products",
-    component: _b150b19c,
+    component: _124b8ecc,
     name: "products"
   }, {
     path: "/",
-    component: _3c91a8f4,
+    component: _23e310cc,
     name: "index"
   }],
 
